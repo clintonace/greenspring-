@@ -3,9 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Middleware\Admin;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Purchase;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules\Unique;
 use Nette\Utils\Random;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -28,18 +33,35 @@ class ProductController extends Controller
         return back();
     }
 
+    public function addTag(Request $request)
+    {
+
+        $request->validate([
+            'name'=> ['required', 'string', 'max:20'],
+            //ensure to let  them know the lenght (Lorem ipsum dolor s)
+        ]);
+
+        $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->save();
+
+        Alert::success('Success', 'Tag added successfully.');
+        return back();
+    }
+
     public function addProduct(Request $request)
     {
 
         $request->validate([
-            'name'=> ['required', 'string'],
+            'name'=> ['required', 'string', 'unique:'.Product::class],
             'category_id'=> ['required'],
             'price'=> ['required', 'numeric'],
             'quantity'=> ['required', 'string'],
             'status'=> ['required', 'string'],
             'description'=> ['required', 'string'],
-            'image'=> ['required', 'mimes:png,jpg'],
+            'image.*' => 'required|mimes:png,jpeg',
         ]);
+
 
         // The image Section
         $image = [];
@@ -49,8 +71,9 @@ class ProductController extends Controller
             $rand = \Str::random(3);
             $imageName= \Str::slug($request->name).$rand.time().'.'.$ext;
             $img->move(public_path('assets/ProductImage'), $imageName);
+            $image[] =  $imageName;
+
         }
-        $image[] =  $imageName;
 
         // The video Section
         $ext = $request->video->getClientOriginalExtension();
@@ -67,6 +90,7 @@ class ProductController extends Controller
         $product->description =$request->description;
         $product->image =implode('|', $image);
         $product->video = $videoName;
+        $product->slug = \Str::slug($request->name);
         $product->save();
 
 
@@ -75,8 +99,42 @@ class ProductController extends Controller
 
     }
 
-    public function ()
+    public function addProductView()
     {
+
+        $cats = Category::all();
+        return view('admin.manageProducts.addproducts', compact('cats'));
+
+    }
+
+    public function addToolsView()
+    {
+        $cats = Category::all();
+        return view('admin.addTools.index', compact('cats'));
+
+    }
+
+    public function userIndex()
+    {
+
+        $user = User::all();
+      return view('admin.manageUsers.index', compact('user'));
+
+    }
+
+    public function allProducts()
+    {
+
+        $procucts = Product::latest()->paginate(4);
+        return view('admin.manageProducts.allproduscts', compact('products'));
+
+    }
+
+    public function allOrders()
+    {
+
+        $products = Purchase::latest()->paginate(4);
+        return view('admin.manageProducts.allorders', compact('products'));
 
     }
 

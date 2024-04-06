@@ -16,7 +16,10 @@ return new class extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('product_id')->nullable();
+            $table->string('title');
+            $table->string('slug');
             $table->longText('blog');
+            $table->longText('image')->nullable();
             $table->longText('tag');  // we will implode the content here
             $table->string('blogcategory_id');
             $table->timestamps();

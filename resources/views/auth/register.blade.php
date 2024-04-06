@@ -17,7 +17,7 @@
                 </div>
             </div>
             <div class="contact-two__form-box">
-                <form action="{{route('register')}}" method="POST" class="contact-two__form contact-form-validated">
+                <form action="{{route('register')}}" method="POST">
                     @csrf
                     <div class="row">
 

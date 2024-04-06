@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('reference');
             $table->string('email');
+            $table->string('product_id')->nullable();//nullable for a futuristic reason.
             $table->string('status')->default('pending');
             $table->double('amount');
             $table->timestamps();

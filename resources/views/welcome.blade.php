@@ -203,15 +203,26 @@
             </div>
         </div>
         <div class="row">
-            <!--New Product Single Start-->
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+            <div style="display: flex; justify-content: right">
+                <a href="{{route('user.all.products.view')}}" style="border-radius: 20px" class="btn btn-success">View all</a>
+            </div>
+        </div>
+        <div class="row">
+
+            @foreach ($products as $p)
+
+             <!--New Product Single Start-->
+             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                 <div class="new-product__single">
                     <div class="new-product__img-box">
                         <div class="new-product__img">
-                            <img src="/assets/guest/assets/images/resources/new-product-1.jpg" alt="">
-                            <span class="new-product__sale">Sale</span>
+                            @php
+                                $image = explode('|', $p->image);
+                            @endphp
+                            <img style="height: 300px; width: 300px" src="/assets/ProductImage/{{$image[0]}}" alt="">
+                            <span class="new-product__sale">On Sale</span>
                             <div class="new-product__img-icon">
-                                <a href="cart.html"><i class="icon-shopping-cart"></i></a>
+                                <a href="{{route('user.single.product.view', $p->slug)}}"><i class="icon-shopping-cart p-1"></i>Buy</a>
                             </div>
                         </div>
                     </div>
@@ -223,87 +234,15 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                         </div>
-                        <h3 class="new-product__title"><a href="products.html">Brown Bread</a></h3>
-                        <p class="new-product__price">$23.00</p>
+                        <h3 class="new-product__title"><a href="products.html">{{$p->name}}</a></h3>
+                        <p class="new-product__price">₦{{number_format($p->price)}}</p>
                     </div>
                 </div>
             </div>
             <!--New Product Single End-->
-            <!--New Product Single Start-->
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
-                <div class="new-product__single">
-                    <div class="new-product__img-box">
-                        <div class="new-product__img">
-                            <img src="/assets/guest/assets/images/resources/new-product-2.jpg" alt="">
-                            <div class="new-product__img-icon">
-                                <a href="cart.html"><i class="icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-product__content">
-                        <div class="new-product__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h3 class="new-product__title"><a href="products.html">Red Onion</a></h3>
-                        <p class="new-product__price">$10.00</p>
-                    </div>
-                </div>
-            </div>
-            <!--New Product Single End-->
-            <!--New Product Single Start-->
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                <div class="new-product__single">
-                    <div class="new-product__img-box">
-                        <div class="new-product__img">
-                            <img src="/assets/guest/assets/images/resources/new-product-3.jpg" alt="">
-                            <div class="new-product__img-icon">
-                                <a href="cart.html"><i class="icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-product__content">
-                        <div class="new-product__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h3 class="new-product__title"><a href="products.html">Broccoli</a></h3>
-                        <p class="new-product__price">$12.00</p>
-                    </div>
-                </div>
-            </div>
-            <!--New Product Single End-->
-            <!--New Product Single Start-->
-            <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                <div class="new-product__single">
-                    <div class="new-product__img-box">
-                        <div class="new-product__img">
-                            <img src="/assets/guest/assets/images/resources/new-product-4.jpg" alt="">
-                            <div class="new-product__img-icon">
-                                <a href="cart.html"><i class="icon-shopping-cart"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="new-product__content">
-                        <div class="new-product__rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <h3 class="new-product__title"><a href="products.html">Lemons</a></h3>
-                        <p class="new-product__price">$20.00</p>
-                    </div>
-                </div>
-            </div>
-            <!--New Product Single End-->
+
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -1098,5 +1037,16 @@
 @endsection
 
 </x-guest-layout>
+
+
+{{-- <x-guest-layout>
+
+
+@section('content')
+
+
+@endsection
+
+</x-guest-layout> --}}
 
 

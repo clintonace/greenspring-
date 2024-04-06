@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('category_id');
+            $table->string('slug');
             $table->string('price');
             $table->string('quantity')->nullable();
             $table->string('status')->default('in-stock');

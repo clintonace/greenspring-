@@ -40,7 +40,7 @@
                 <i class="rt-icon2-cross2"></i>
             </span>
         </button>
-        <div class="widget widget_search">
+        {{-- <div class="widget widget_search">
             <form method="get" class="searchform search-form form-inline"
                 action="https://html.modernwebtemplates.com/greenscape/">
                 <div class="form-group">
@@ -49,7 +49,7 @@
                 </div>
                 <button type="submit" class="theme_button">Search</button>
             </form>
-        </div>
+        </div> --}}
     </div>
 
     <!-- Unyson messages modal -->
@@ -128,7 +128,7 @@
                     <a href="admin_index.html">
                         <span class="logo_text">
                             Green
-                            <strong>scape</strong>
+                            <strong class="text-success">Spring</strong>
                         </span>
                     </a>
                 </div>
@@ -151,7 +151,7 @@
                                                 <img src="/assets/admin/assets/images/team/01.jpg" alt="">
                                             </div>
                                             <div class="media-body media-middle">
-                                                <h4>Ann Andersen</h4>
+                                                <h4>{{Auth::user()->name}}</h4>
                                                 Administrator
 
                                             </div>
@@ -189,147 +189,7 @@
 
                         </div>
 
-                        <!-- main side nav start -->
-                        <nav class="mainmenu_side_wrapper">
-                            <h3 class="dark_bg_color">Dashboard</h3>
-                            <ul class="menu-click">
-                                <li>
-                                    <a href="admin_index.html">
-                                        <i class="fa fa-th-large"></i>
-                                        Dashboard
-                                    </a>
-
-                                </li>
-                            </ul>
-
-                            <ul class="menu-click">
-                                <li>
-                                    <a href="#">
-                                        <i class="fa fa-user"></i>
-                                        Account
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a href="admin_profile.html">
-                                                Profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_profile_edit.html">
-                                                Edit Profile
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_inbox.html">
-                                                Inbox
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_signin.html">
-                                                Sign In
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_signup.html">
-                                                Sign Up
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="admin_posts.html">
-                                        <i class="fa fa-file-text"></i>
-                                        Posts
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a href="admin_posts.html">
-                                                Posts
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_post.html">
-                                                Single Post
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="admin_products.html">
-                                        <i class="fa fa-suitcase"></i>
-                                        Products
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a href="admin_products.html">
-                                                Products
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_product.html">
-                                                Single Product
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="admin_orders.html">
-                                        <i class="fa fa-shopping-cart"></i>
-                                        Orders
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a href="admin_orders.html">
-                                                Orders
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_order.html">
-                                                Single Order
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="admin_comments.html">
-                                        <i class="fa fa-comment"></i>
-                                        Comments
-                                    </a>
-                                    <ul>
-                                        <li>
-                                            <a href="admin_comments.html">
-                                                Comments
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="admin_comment.html">
-                                                Single Comment
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="admin_faq.html">
-                                        <i class="fa fa-support"></i>
-                                        FAQ
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- eof main side nav -->
-
-                        <div class=" grey text-center">
-
-                            <form action="{{route('logout')}}" method="post">
-                                @csrf
-
-                                <button type="submit">
-                                    <strong><i class="fa fa-power-off"></i> Logout</strong>
-                                </button>
-                            </form>
-                        </div>
+                       <x-sidebar-component/>
 
                     </div>
                 </div>
@@ -783,6 +643,16 @@
         <i class="fa fa-envelope"></i>
     </a>
 
+    {{--Ck-editor--}}
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.2.1/classic/ckeditor.js"></script>
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 
     <!-- template init -->
     <script src="/assets/admin/assets/js/compressed.js"></script>

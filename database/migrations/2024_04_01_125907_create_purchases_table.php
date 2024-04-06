@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('transaction_id');
             $table->string('reference');
+            $table->string('delivered')->nullable();
             $table->timestamps();
         });
     }

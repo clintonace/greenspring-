@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +20,38 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+
+    $products = Product::latest()->paginate(2);
+    $cats = Category::all();
+
+    return view('welcome',compact('products','cats'));
+})->name('/');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    $users = User::all();
+    $products = Product::all();
+    $categories = Category::all();
+
+    if (Auth::user()->role = 007) {
+
+        return view('dashboard', compact('users','products','categories'));
+
+    }
+
+})->middleware(['auth','verified'])->name('dashboard');
+
+
+Route::prefix('user')->group(function () {
+
+    Route::get('/allProducts/view', [ProductController::class, 'allProductsView'])->name('user.all.products.view');
+    Route::get('/singleProduct/view/{product}', [ProductController::class, 'singleProductView'])->name('user.single.product.view');
 });
 
+    
+Route::post('/paytest/{product}', [ProductController::class, 'paytest'])->name('user.buy');
+
+
+
 require __DIR__.'/auth.php';
+require __DIR__.'/admin.php';
