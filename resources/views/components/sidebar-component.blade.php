@@ -39,7 +39,7 @@
             </a>
             <ul>
                 <li>
-                    <a href="admin_posts.html">
+                    <a href="{{route('admin.all.blogs')}}">
                         Blogs
                     </a>
                 </li>
@@ -97,7 +97,7 @@
             </a>
             <ul>
                 <li>
-                    <a href="admin_orders.html">
+                    <a href="{{route('admin.all.orders')}}">
                         Orders
                     </a>
                 </li>

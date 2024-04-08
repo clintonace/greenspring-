@@ -65,6 +65,12 @@
                                     <div class="project-details__input-box">
                                         <input type="email" placeholder="Email address" name="email">
                                     </div>
+                                    <div class="project-details__input-box">
+                                        <input type="number" placeholder="1" name="quantity">
+                                    </div>
+                                    <div class="project-details__input-box">
+                                        <input type="text" placeholder="09031876166" name="phone">
+                                    </div>
                                     <input type="hidden" name="currency" value="NGN">
                                     <input type="hidden" name="amount" value="{{$product->price}}">
                                     <input type="hidden" name="metadata" value="{{ json_encode($array = ['key_name' => 'value',]) }}" >

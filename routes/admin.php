@@ -23,10 +23,25 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/allOrders', [ProductController::class, 'allOrders'])->name('admin.all.orders');
 
+    Route::get('/singleOrder/{purchase}', [ProductController::class, 'singleOrder'])->name('admin.single.order');
+    Route::post('/delivered/{order}', [ProductController::class, 'deliveredOrder'])->name('admin.deliver.order');
+    Route::post('/returned/{order}', [ProductController::class, 'returnedOrder'])->name('admin.return.order');
+
     Route::prefix('blog')->group(function () {
 
         Route::get('/addBlogTools/view', [BlogController::class, 'addBlogToolsView'])->name('admin.add.blog.tools.view');
         Route::get('/addBlog/view', [BlogController::class, 'addBlogView'])->name('admin.add.blog.view');
+        Route::get('/allBlogs/view', [BlogController::class, 'allBlogs'])->name('admin.all.blogs');
+
+        Route::get('/singleBlog/view/{slug}', [BlogController::class, 'singleBlogView'])->name('admin.single.blog');
+        Route::post('/deleteBlog/{blog}', [BlogController::class, 'deleteBlog'])->name('admin.delete.blog');
+
+        Route::get('/editBlog/view/{slug}', [BlogController::class, 'editBlogView'])->name('admin.edit.blog.view');
+        Route::post('/editBlog/{slug}', [BlogController::class, 'editBlog'])->name('admin.edit.blog');
+
+        Route::get('/singleComment/view/{id}', [BlogController::class, 'singleCommentView'])->name('admin.single.comment.view');
+        Route::post('/commentApprove/{id}', [BlogController::class, 'commentApprove'])->name('admin.approve.comment');
+        Route::post('/commentDelete/{id}', [BlogController::class, 'commentDelete'])->name('admin.delete.comment');
 
         Route::post('/addBlog', [BlogController::class, 'addBlog'])->name('admin.add.blog');
 

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('transaction_id');
             $table->string('reference');
             $table->string('delivered')->nullable();
+            $table->double('quantity');
             $table->timestamps();
         });
     }

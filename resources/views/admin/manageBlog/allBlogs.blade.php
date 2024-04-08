@@ -111,16 +111,14 @@
                                         No:
                                     </td>
                                     <th>Title:</th>
-                                    <th>Price:</th>
-                                    <th>Email:</th>
-                                    <th>Transaction_id:</th>
-                                    <th>Reference:</th>
-                                    <th>Delivered:</th>
+                                    <th>Blog:</th>
+                                    <th>Category:</th>
+                                    <th>Comments:</th>
                                     <th>Action:</th>
                                     <th>Date:</th>
 
                                 </tr>
-                                @foreach ($paid as $p)
+                                @foreach ($blogs as $b)
 
                                 <tr class="item-editable">
                                     <td class="media-middle text-center">
@@ -133,36 +131,35 @@
                                             </div>
                                             <div class="media-body media-middle">
                                                 <h5>
-                                                    <a href="admin_product.html">{{$p->product->name}}</a>
+                                                    <a href="admin_product.html">{{$b->title}}</a>
                                                 </h5>
                                             </div>
                                         </div>
                                     </td>
+
+
                                     <td class="media-middle">
-                                        <strong>
-                                            ₦{{number_format($p->price)}}
-                                        </strong>
+                                        {!!\Str::words($b->blog,2,'...')!!}
+                                    </td>
+                                    <td class="media-middle">
+                                        {{$b->category->name}}
+                                    </td>
+                                    <td class="media-middle">
+                                        {{$b->comments->count()}}
                                     </td>
 
                                     <td class="media-middle">
-                                        {{$p->email}}
-                                    </td>
-                                    <td class="media-middle">
-                                        {{$p->transaction_id}}
-                                    </td>
-                                    <td class="media-middle">
-                                        {{$p->reference}}
-                                    </td>
-                                    <td class="media-middle">
-                                        {{$p->delivered}}
-                                    </td>
-                                    <td class="media-middle">
                                         <div>
-                                            <a href="{{route('admin.single.order', $p->id)}}"><i class="fa fa-eye"></i></a>
+                                            <a  class="btn btn-danger" href="{{route('admin.single.blog', $b->slug)}}"><i class="fa fa-eye"></i></a>
+                                            <form action="{{route('admin.delete.blog', $b->id)}}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                            <a class="btn btn-danger" href="{{route('admin.edit.blog.view', $b->slug)}}"><i class="fa fa-pencil"></i></a>
                                         </div>
                                     </td>
                                     <td class="media-middle">
-                                        <time datetime="{{$p->created_at}}" class="entry-date">{{$p->created_at->diffForHumans()}}</time>
+                                        <time datetime="{{$b->created_at}}" class="entry-date">{{$b->created_at->diffForHumans()}}</time>
                                     </td>
                                 </tr>
                                 @endforeach

@@ -133,10 +133,40 @@ class ProductController extends Controller
     public function allOrders()
     {
 
-        $products = Purchase::latest()->paginate(4);
-        return view('admin.manageProducts.allorders', compact('products'));
+        $paid = Purchase::with('product')->latest()->paginate(4);
+        return view('admin.manageProducts.allorders', compact('paid'));
 
     }
+
+    public function singleOrder($purchase)
+    {
+
+        $order = Purchase::with('trnx')->find($purchase);
+        return view('admin.manageProducts.singleorder', compact('order'));
+    }
+
+    public function deliveredOrder($order)
+    {
+
+        $delivered = Purchase::find($order);
+
+        $delivered->delivered = 'Yes';
+        $delivered->save();
+        return back();
+
+    }
+
+    public function returnedOrder($order)
+    {
+
+        $returned = Purchase::find($order);
+
+        $returned->delivered = 'Returned';
+        $returned->save();
+        return back();
+
+    }
+
 
 
 }

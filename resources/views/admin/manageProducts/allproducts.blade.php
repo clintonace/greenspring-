@@ -108,23 +108,17 @@
 
                                 <tr>
                                     <td class="media-middle text-center">
-                                        No:
+                                        <input type="checkbox">
                                     </td>
                                     <th>Title:</th>
                                     <th>Price:</th>
-                                    <th>Email:</th>
-                                    <th>Transaction_id:</th>
-                                    <th>Reference:</th>
-                                    <th>Delivered:</th>
-                                    <th>Action:</th>
                                     <th>Date:</th>
-
+                                    <th>Categories:</th>
+                                    <th>Status:</th>
                                 </tr>
-                                @foreach ($paid as $p)
-
                                 <tr class="item-editable">
                                     <td class="media-middle text-center">
-                                        {{$loop->index =+ 1}}
+                                        <input type="checkbox">
                                     </td>
                                     <td>
                                         <div class="media">
@@ -133,40 +127,26 @@
                                             </div>
                                             <div class="media-body media-middle">
                                                 <h5>
-                                                    <a href="admin_product.html">{{$p->product->name}}</a>
+                                                    <a href="admin_product.html">Consectetur adipisicing elit</a>
                                                 </h5>
                                             </div>
                                         </div>
                                     </td>
                                     <td class="media-middle">
                                         <strong>
-                                            ₦{{number_format($p->price)}}
+                                            $55.00
                                         </strong>
                                     </td>
-
                                     <td class="media-middle">
-                                        {{$p->email}}
+                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
                                     </td>
                                     <td class="media-middle">
-                                        {{$p->transaction_id}}
+                                        uncategorized, category1
                                     </td>
                                     <td class="media-middle">
-                                        {{$p->reference}}
-                                    </td>
-                                    <td class="media-middle">
-                                        {{$p->delivered}}
-                                    </td>
-                                    <td class="media-middle">
-                                        <div>
-                                            <a href="{{route('admin.single.order', $p->id)}}"><i class="fa fa-eye"></i></a>
-                                        </div>
-                                    </td>
-                                    <td class="media-middle">
-                                        <time datetime="{{$p->created_at}}" class="entry-date">{{$p->created_at->diffForHumans()}}</time>
+                                        Published
                                     </td>
                                 </tr>
-                                @endforeach
-
                             </table>
                         </div>
                         <!-- .table-responsive -->

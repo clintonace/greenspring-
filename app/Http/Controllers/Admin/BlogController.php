@@ -24,6 +24,18 @@ class BlogController extends Controller
 
     }
 
+    public function allBlogs()
+    {
+        $cats = Blogcategory::all();
+        $blogs = Blog::latest()->with('product','category', 'comments')->paginate(3);
+        $tags = Tag::all();
+
+        // dd($blogs);
+
+        return view('admin.manageBlog.allBlogs', compact('cats','blogs', 'tags'));
+
+    }
+
     public function addBlog(Request $request)
     {
 
@@ -120,5 +132,95 @@ class BlogController extends Controller
 
         return back();
     }
+
+    public function singleBlogView($slug)
+    {
+
+        $blog = Blog::whereSlug($slug)->first();
+
+        return view('admin.manageBlog.singleBlog', compact('blog'));
+     }
+
+     public function editBlogView($slug)
+     {
+
+        $blog = Blog::whereSlug($slug)->first();
+
+        $products=Product::all();
+        $cats = Blogcategory::all();
+        $tags = Tag::all();
+
+        return view('admin.manageBlog.editBlog', compact('blog','products','cats','tags'));
+
+     }
+
+     public function editBlog(Request $request, $slug)
+     {
+
+        $tags = [];
+        $blog = Blog::whereSlug($slug)->first();
+
+        if ($request->has('tag')) {
+
+            foreach ($request->tag as $t) {
+                $tags[]=$t;
+             };
+           $blog->tag = implode('|', $tags);
+
+        }
+
+        if ($request->has('category_id')) {
+
+            $blog->blogcategory_id = $request->category_id;
+        }
+
+        if ($request->has('blog')) {
+
+            $blog->blog = $request->blog;
+        }
+
+        if ($request->has('product_id')) {
+
+            $blog->product_id = $request->product_id;
+        }
+
+        $blog->title = $request->title;
+        $blog->slug = \Str::slug($request->title);
+        $blog->save();
+        Alert::success('success', 'Blog Edited Successfuly.');
+        return redirect()->route('admin.edit.blog.view', $blog->slug);
+
+     }
+
+     public function singleCommentView($c)
+     {
+
+        $comment = Comment::find($c);
+        return view('admin.manageBlog.singleComment', compact('comment'));
+     }
+
+     public function commentApprove($c)
+     {
+
+        $comment = Comment::find($c);
+
+        $comment->approval = 1;
+        $comment->save();
+
+        Alert::success('Success', 'Approved Comment Successfully.');
+        return back();
+
+     }
+
+     public function deleteApprove($c)
+     {
+
+        $comment = Comment::find($c);
+        $comment->delete();
+
+        Alert::success('Success', 'Deleted Comment Successfully.');
+        return back();
+
+     }
 
 }
