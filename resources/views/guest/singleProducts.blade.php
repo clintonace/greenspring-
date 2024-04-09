@@ -54,13 +54,15 @@
                             {!! $product->description !!}
 
                         </div>
-                        <div>
-                            <button class="btn btn-success">
-                                <a href="">Buy Now</a>
+                        <h3>{{$product->name}}</h3>
+                        <div style="display: flex; justify-content: left">
+                            <button style=" justify-content: right" class="btn btn-success">
+                                <a style="color: white" href="{{route('checkout', $product->slug)}}">Buy Now</a>
                             </button>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
+
+                    <div class="col-xl-12 col-lg-12">
                         <div class="project-details__content-left">
 
 
@@ -82,12 +84,12 @@
                                         <h4 class="project-details__name">₦ {{number_format($product->price)}}</h4>
                                     </li>
                                     <li>
-                                        <p class="project-details__client">Location</p>
-                                        <h4 class="project-details__name">New York, USA</h4>
+                                        <p class="project-details__client">Quantity</p>
+                                        <h4 class="project-details__name">{{$product->quantity}}</h4>
                                     </li>
                                     <li>
-                                        <p class="project-details__client">Value</p>
-                                        <h4 class="project-details__name">$25,60000</h4>
+                                        <p class="project-details__client">Status</p>
+                                        <h4 class="project-details__name">{{$product->status}}</h4>
                                     </li>
                                     <li>
                                         <div class="project-details__social">

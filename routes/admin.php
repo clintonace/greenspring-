@@ -75,7 +75,6 @@ Route::prefix('admin')->group(function () {
         Route::get('/approvedComment/view', [BlogController::class, 'approvedCommentsView'])->name('admin.approved.comment.view');
 
 
-        Route::post('/addComment/{b}', [BlogController::class, 'addComment'])->name('admin.add.comment');
 
         Route::post('/addBlogTag', [BlogController::class, 'addBlogTag'])->name('admin.add.blog.tag');
         Route::post('/editBlogTag/{tag}', [BlogController::class, 'editBlogTag'])->name('admin.edit.blog.tag');
@@ -89,6 +88,7 @@ Route::prefix('admin')->group(function () {
 
 });
 
+Route::post('/addComment/{b}', [BlogController::class, 'addComment'])->name('admin.add.comment');
 // Payment modules
 Route::post('/pay/{product}', [PaymentController::class, 'redirectToGateway'])->name('pay');
 Route::get('/payment/callback', [PaymentController::class, 'handleGatewayCallback'])->name('callbackurl');

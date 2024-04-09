@@ -22,6 +22,11 @@ class PaymentController extends Controller
         // dd($request->all());
         // dd(Paystack::getAuthorizationUrl());
 
+        $request->validate([
+            'quantity'=>'numeric',
+            'phone'=>'numeric'
+        ]);
+
         $product = Product::find($p);
 
         $data = [

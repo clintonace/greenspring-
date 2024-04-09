@@ -12,15 +12,7 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
+
             </div>
             <!-- .row -->
         </div>
@@ -33,36 +25,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <h3 class="dashboard-page-title">Dashboard
-                        <small>main page</small>
+
                     </h3>
                 </div>
-                <div class="col-md-8 text-md-right">
-                    <h3 class="sparklines-title">
-                        <sup>Today Earnings:</sup>
-
-                        $3,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,-386,-468,-200,55,375,520,270,790,-670,-350,135,170,324,386,468,10,55,375,520,270,790"
-                            data-type="bar" data-line-color="#eeb269" data-neg-color="#dc5753" data-height="30"
-                            data-bar-width="2">
-                        </span>
-
-                    </h3>
-
-                    <h3 class="sparklines-title">
-                        <sup>Yesterday Earn: </sup>
-                        $4,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,386,-468,-10,55,375,520,-270,790,670,-350,135,170,324,386,468,10,-55,-375,-520,270,790"
-                            data-type="bar" data-line-color="#4db19e" data-neg-color="#007ebd" data-height="30"
-                            data-bar-width="2">
-                        </span>
-                    </h3>
-
-                </div>
-
             </div>
             <!-- .row -->
 
@@ -71,10 +36,10 @@
                 <div class="col-lg-3 col-sm-6">
 
                     <div class="teaser warning_bg_color counter-background-teaser text-center">
-                        <span class="counter counter-background" data-from="0" data-to="1257"
-                            data-speed="2100">0</span>
-                        <h3 class="counter highlight" data-from="0" data-to="1257" data-speed="2100">0</h3>
-                        <p>Reviews / Month</p>
+                        <span class="counter counter-background" data-from="0" data-to="{{$blogs->count()}}"
+                            data-speed="2100">{{$blogs->count()}}</span>
+                        <h3 class="counter highlight" data-from="0" data-to="{{$blogs->count()}}" data-speed="2100">{{$blogs->count()}}</h3>
+                        <p>Blogs</p>
                     </div>
 
                 </div>
@@ -82,10 +47,10 @@
                 <div class="col-lg-3 col-sm-6">
 
                     <div class="teaser danger_bg_color counter-background-teaser text-center">
-                        <span class="counter counter-background" data-from="0" data-to="346"
-                            data-speed="1500">0</span>
-                        <h3 class="counter highlight" data-from="0" data-to="346" data-speed="1500">0</h3>
-                        <p>Clients / Month</p>
+                        <span class="counter counter-background" data-from="0" data-to="{{$products->count()}}"
+                            data-speed="1500">{{$products->count()}}</span>
+                        <h3 class="counter highlight" data-from="0" data-to="{{$products->count()}}" data-speed="1500">{{$products->count()}}</h3>
+                        <p>Products</p>
                     </div>
 
                 </div>
@@ -93,10 +58,10 @@
                 <div class="col-lg-3 col-sm-6">
 
                     <div class="teaser success_bg_color counter-background-teaser text-center">
-                        <span class="counter counter-background" data-from="0" data-to="216"
-                            data-speed="1900">0</span>
-                        <h3 class="counter highlight" data-from="0" data-to="216" data-speed="1900">0</h3>
-                        <p>Orders / Month</p>
+                        <span class="counter counter-background" data-from="0" data-to="{{$comments->count()}}"
+                            data-speed="1900">{{$comments->count()}}</span>
+                        <h3 class="counter highlight" data-from="0" data-to="{{$comments->count()}}" data-speed="1900">{{$comments->count()}}</h3>
+                        <p>Orders/Recieved</p>
                     </div>
 
                 </div>
@@ -105,11 +70,11 @@
 
                     <div class="teaser info_bg_color counter-background-teaser text-center">
                         <span class="counter counter-background" data-from="0" data-to="15"
-                            data-speed="1800">0</span>
-                        <h3 class="counter-wrap highlight" data-from="0" data-to="346" data-speed="1800">
-                            <small>$</small>
-                            <span class="counter" data-from="0" data-to="346" data-speed="1500">0</span>
-                            <small class="counter-add">k</small>
+                            data-speed="1800">{{number_format($orders)}}</span>
+                        <h3 class="counter-wrap highlight" data-from="0" data-to="{{$orders}}" data-speed="1800">
+                            <small>₦</small>
+                            <span class="counter" data-from="0" data-to="{{$orders}}" data-speed="1500">{{number_format($orders)}}</span>
+                            
                         </h3>
                         <p>Total Profit</p>
                     </div>
@@ -119,7 +84,7 @@
 
 
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-xs-12 col-md-6">
 
                     <div class="with_border with_padding">
@@ -1160,11 +1125,11 @@
                     </div>
                     <!-- .with_border -->
                 </div>
-            </div>
+            </div> --}}
         </div>
         <!-- .container -->
     </section>
-    
+
     @endsection
 </x-app-layout>
 

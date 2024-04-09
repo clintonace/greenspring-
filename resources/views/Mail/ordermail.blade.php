@@ -37,20 +37,18 @@
                 <table class="content" width="100%" cellpadding="0" cellspacing="0" role="presentation"
                     style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 0; padding: 0; width: 100%;">
                     <tr>
-                        <td class="header"
-                            style="box-sizing: border-box;
+                        <td class="header" style="box-sizing: border-box;
                             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;
                             background-color: #2d3748; padding: 10px 0; text-align: center;">
                             <a href="#"
                                 style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3d4852; font-size: 19px; font-weight: bold; text-decoration: none; display: inline-block;">
-                                <img src="{{ $message->embed(public_path('/assets/greenspringlogo.png')) }}" class="logo"
-                                    alt="Laravel Logo"
-                                    style="box-sizing: border-box; font-family: -apple-system,
+                                <img src="{{ $message->embed(public_path('/assets/greenspringlogo.png')) }}"
+                                    class="logo" alt="Laravel Logo" style="box-sizing: border-box; font-family: -apple-system,
                                      BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
                                       Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
                                        'Segoe UI Symbol'; position: relative; max-width: 100%;
                                        border: none; height: 50px; max-height: 50px; width: 50px;">
-                                    <p><span style="color: white">GREEN</span><span style="color:green">SPRING</span></p>
+                                <p><span style="color: white">GREEN</span><span style="color:green">SPRING</span></p>
 
                             </a>
 
@@ -73,7 +71,7 @@
                                             Hello! Admin</h1>
                                         <p
                                             style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; font-size: 16px; line-height: 1.5em; margin-top: 0; text-align: left;">
-                                            An Order was initiated via mail. Please respond</p>
+                                            An Order was initiated. Please respond</p>
                                         <table class="action" align="center" width="100%" cellpadding="0"
                                             cellspacing="0" role="presentation"
                                             style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -premailer-cellpadding: 0; -premailer-cellspacing: 0; -premailer-width: 100%; margin: 30px auto; padding: 0; text-align: center; width: 100%;">
@@ -92,43 +90,147 @@
                                                                     <tr>
                                                                         <td
                                                                             style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-                                                                            <a href="#"
-                                                                                class="button button-primary"
-                                                                                target="_blank" rel="noopener"
-                                                                                style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
                                                                                 border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
                                                                                 border-right: 18px solid #2d3748;
-                                                                                border-top: 8px solid #2d3748;">Order Details:
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
 
                                                                                 <span>
 
                                                                                     Product name:
                                                                                     {{$order['product_name']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     User contact:
                                                                                     {{$order['phone']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     User contact mail:
                                                                                     {{$order['email']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     Delivery location:
                                                                                     {{$order['location']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     Order quantity:
                                                                                     {{$order['quantity']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     Order amount:
                                                                                     {{$order['amount']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
                                                                                     Order status:
                                                                                     {{$order['status']}}
                                                                                 </span>
+
+
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td
+                                                                            style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
+                                                                            <a href="#" class="button button-primary"
+                                                                                target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748;
+                                                                                border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748;
+                                                                                border-right: 18px solid #2d3748;
+                                                                                border-top: 8px solid #2d3748;">Order
+                                                                                Details:
+
                                                                                 <span>
 
                                                                                     @if ($order['status']=='Completed')

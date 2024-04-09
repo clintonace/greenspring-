@@ -11,6 +11,14 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
+    public function checkoutView($slug)
+    {
+
+        $product = Product::whereSlug($slug)->first();
+
+        return view('guest.checkout', compact('product'));
+    }
+
     public function searchProductView(Request $request)
     {
 

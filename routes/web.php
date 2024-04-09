@@ -4,7 +4,9 @@ use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Product;
+use App\Models\Purchase;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,13 +33,17 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
 
-    $users = User::all();
+    $blogs = Blog::all();
     $products = Product::all();
     $categories = Category::all();
+    $comments =Comment::all();
+    $orders = Purchase::latest()->sum('price');
+
+    // dd($orders);
 
     if (Auth::user()->role = 007) {
 
-        return view('dashboard', compact('users','products','categories'));
+        return view('dashboard', compact('orders','comments','blogs','products','categories'));
 
     }
 
@@ -53,6 +59,9 @@ Route::prefix('guest')->group(function () {
     Route::get('/singleProduct/view/{product}', [ProductController::class, 'singleProductView'])->name('user.single.product.view');
     Route::get('/singleBlog/view/{blog}', [ProductController::class, 'singleBlogView'])->name('user.single.blog.view');
     Route::post('/searchProduct/view', [ProductController::class, 'searchProductView'])->name('user.search.product');
+
+    Route::get('/checkout/{product}', [ProductController::class, 'checkoutView'])->name('checkout');
+
 });
 
 
