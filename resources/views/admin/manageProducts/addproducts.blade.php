@@ -12,15 +12,7 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
+
             </div>
             <!-- .row -->
         </div>
@@ -32,37 +24,10 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <h3 class="dashboard-page-title">Dashboard
-                        <small>main page</small>
+                    <h3 class="dashboard-page-title">Add Product
+
                     </h3>
                 </div>
-                <div class="col-md-8 text-md-right">
-                    <h3 class="sparklines-title">
-                        <sup>Today Earnings:</sup>
-
-                        $3,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,-386,-468,-200,55,375,520,270,790,-670,-350,135,170,324,386,468,10,55,375,520,270,790"
-                            data-type="bar" data-line-color="#eeb269" data-neg-color="#dc5753" data-height="30"
-                            data-bar-width="2">
-                        </span>
-
-                    </h3>
-
-                    <h3 class="sparklines-title">
-                        <sup>Yesterday Earn: </sup>
-                        $4,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,386,-468,-10,55,375,520,-270,790,670,-350,135,170,324,386,468,10,-55,-375,-520,270,790"
-                            data-type="bar" data-line-color="#4db19e" data-neg-color="#007ebd" data-height="30"
-                            data-bar-width="2">
-                        </span>
-                    </h3>
-
-                </div>
-
             </div>
             <!-- .row -->
 
@@ -137,24 +102,13 @@
 
                             </div>
 
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Videos(Choose a video ):</label>
-                                <input type="file" class="form-control" accept="video*/" name="video">
-                                {{-- <x-input-error :messages="$errors->get('video')" class="mt-2" /> --}}
-
-                            </div>
-
                             <button type="submit" class="theme_button">Submit</button>
                         </form>
                     </div>
                     <!-- .with_border -->
-
-
                 </div>
                 <!-- .col-* -->
             </div>
-
-
         </div>
         <!-- .container -->
     </section>

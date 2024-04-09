@@ -128,34 +128,35 @@
                         <div style="display: flex;">
 
                             <div class="row">
-                            @foreach ($image as $img)
+                                @foreach ($image as $img)
 
                                 <div class="col-lg-6 ">
 
-                                <img style="height: 500px; width: 500px" src="/assets/BlogImages/{{$img}}" alt="nil">
+                                    <img style="height: 500px; width: 500px" src="/assets/BlogImages/{{$img}}"
+                                        alt="nil">
 
 
-                                <form action="{{route('admin.edit.blog.image', [$img ? $img : 'empty',$blog->id])}}"
-                                    method="POST" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="form-group">
-                                        <input type="file" class="form-control" id="exampleInputEmail1" name="image">
-                                        <x-input-error :messages="$errors->get('image')" class="mt-2" />
+                                    <form action="{{route('admin.edit.blog.image', [$img ? $img : 'empty',$blog->id])}}"
+                                        method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <input type="file" class="form-control" id="exampleInputEmail1"
+                                                name="image">
+                                            <x-input-error :messages="$errors->get('image')" class="mt-2" />
 
-                                    </div>
+                                        </div>
 
-                                    <button type="submit" class="theme_button">Edit</button>
-                                </form>
-                                <form action="{{route('admin.delete.blog.image', [$img ? $img : 'empty',$blog->id])}}"
-                                    method="POST">
-                                    @csrf
-                                    <button type="submit" class="theme_button btn-danger">Delete</button>
-                                </form>
+                                        <button type="submit" class="theme_button">Edit</button>
+                                    </form>
+                                    <form
+                                        action="{{route('admin.delete.blog.image', [$img ? $img : 'empty',$blog->id])}}"
+                                        method="POST">
+                                        @csrf
+                                        <button type="submit" class="theme_button btn-danger">Delete</button>
+                                    </form>
+                                </div>
+                                @endforeach
                             </div>
-
-
-                            @endforeach
-                        </div>
                         </div>
 
                     </div>
@@ -204,8 +205,8 @@
                         </td>
 
                         <td class="media-middle">
-                            <div>
-                                <a class="btn btn-danger" href="{{route('admin.single.comment.view', $c->id)}}"><i
+                            <div style="display: flex; justify-content: space-between">
+                                <a style="color: white" class="btn btn-danger" href="{{route('admin.single.comment.view', $c->id)}}"><i
                                         class="fa fa-eye"></i></a>
 
                                 @if ($c->approval != 1)

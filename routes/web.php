@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\User\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\User;
@@ -23,8 +24,9 @@ Route::get('/', function () {
 
     $products = Product::latest()->paginate(2);
     $cats = Category::all();
+    $blogs = Blog::with('comments')->latest()->paginate(3);
 
-    return view('welcome',compact('products','cats'));
+    return view('welcome',compact('products','cats', 'blogs'));
 })->name('/');
 
 Route::get('/dashboard', function () {
@@ -42,13 +44,14 @@ Route::get('/dashboard', function () {
 })->middleware(['auth','verified'])->name('dashboard');
 
 
-Route::prefix('user')->group(function () {
+Route::prefix('guest')->group(function () {
 
+    Route::get('/aboutus/view', [ProductController::class, 'aboutUsView'])->name('user.aboutus.view');
     Route::get('/allProducts/view', [ProductController::class, 'allProductsView'])->name('user.all.products.view');
     Route::get('/singleProduct/view/{product}', [ProductController::class, 'singleProductView'])->name('user.single.product.view');
 });
 
-    
+
 Route::post('/paytest/{product}', [ProductController::class, 'paytest'])->name('user.buy');
 
 

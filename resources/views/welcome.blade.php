@@ -39,11 +39,11 @@
                                     <div class="main-slider-three__shape-2">
                                         <img src="/assets/guest/assets/vendors/images/shapes/main-slider-three-shape-2.png" alt="">
                                     </div>
-                                    <p class="main-slider-three__sub-title">Welcome to Organic Online Strore</p>
+                                    <p class="main-slider-three__sub-title">Welcome to GreenSprings Online Strore</p>
                                 </div>
-                                <h2 class="main-slider-three__title">Organic Market</h2>
+                                <h2 class="main-slider-three__title">GreenSpring</h2>
                                 <div class="main-slider-three__btn-box">
-                                    <a href="products.html" class="thm-btn main-slider-three__btn">Start
+                                    <a href="{{route('user.all.products.view')}}" class="thm-btn main-slider-three__btn">Start
                                         Shopping
                                         <i class="icon-right-arrow"></i> </a>
                                 </div>
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="swiper-slide">
+            {{-- <div class="swiper-slide">
                 <div class="image-layer-three"
                     style="background-image: url(/assets/guest/assets/images/backgrounds/main-slider-3-2.jpg);"></div>
                 <!-- /.image-layer -->
@@ -80,9 +80,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <div class="swiper-slide">
+            {{-- <div class="swiper-slide">
                 <div class="image-layer-three"
                     style="background-image: url(/assets/guest/assets/images/backgrounds/main-slider-3-3.jpg);"></div>
                 <!-- /.image-layer -->
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
 
 
@@ -156,7 +156,7 @@
                     </div>
                     <div class="feature-three__content">
                         <h3 class="feature-three__title">Free Shipping</h3>
-                        <p class="feature-three__subtitle">On all orders over $60.00</p>
+                        <p class="feature-three__subtitle">On all orders over ₦60,000</p>
                     </div>
                 </div>
             </div>
@@ -227,14 +227,14 @@
                         </div>
                     </div>
                     <div class="new-product__content">
-                        <div class="new-product__rating">
+                        {{-- <div class="new-product__rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
-                        </div>
-                        <h3 class="new-product__title"><a href="products.html">{{$p->name}}</a></h3>
+                        </div> --}}
+                        <h3 class="new-product__title"><a href="{{route('user.single.product.view', $p->slug)}}">{{$p->name}}</a></h3>
                         <p class="new-product__price">₦{{number_format($p->price)}}</p>
                     </div>
                 </div>
@@ -260,9 +260,9 @@
                     <div class="banners__left-shape-one"
                         style="background-image: url(assets/images/shapes/banner-shape-1.png);"></div>
                     <div class="banners__content">
-                        <h3 class="banners__left-title">100% <br> Organic</h3>
-                        <p class="banners__left-sub-title">Quality Organic Food Store</p>
-                        <a href="products.html" class="thm-btn banners__left-btn">Shop Now</a>
+                        <h3 class="banners__left-title">100% <br> Natural</h3>
+                        <p class="banners__left-sub-title">Quality Natures Food Store</p>
+                        <a href="{{route('user.all.products.view')}}" class="thm-btn banners__left-btn">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -274,9 +274,9 @@
                     <div class="banners__right-shape-two"
                         style="background-image: url(assets/images/shapes/banner-shape-2.png);"></div>
                     <div class="banners__content">
-                        <h3 class="banners__right-title">Pure Healthy <br> fruits</h3>
-                        <p class="banners__right-sub-title">Quality Organic Food Store</p>
-                        <a href="products.html" class="thm-btn banners__right-btn">Shop Now</a>
+                        <h3 class="banners__right-title">Pure Healthy <br> Plants</h3>
+                        <p class="banners__right-sub-title">Quality Natural Food Store</p>
+                        <a href="{{route('user.all.products.view')}}" class="thm-btn banners__right-btn">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -294,7 +294,7 @@
             <div class="col-xl-12">
                 <div class="video-one__inner">
                     <div class="video-one__video-link">
-                        <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                        <a href="#" class="video-popup">
                             <div class="video-one__video-icon">
                                 <span class="fa fa-play"></span>
                                 <i class="ripple"></i>
@@ -305,7 +305,7 @@
                         <img src="/assets/guest/assets/images/resources/video-one-1.png" alt="">
                     </div>
                     <h2 class="video-one__video-title">Be Healthy & Eat Only
-                        <br>Fresh Organic Vagetables</h2>
+                        <br>Fresh Home Grown Vagetables</h2>
                 </div>
             </div>
         </div>
@@ -334,16 +334,15 @@
                                 <img src="/assets/guest/assets/images/icon/section-title-icon-1.png" alt="">
                             </div>
                         </div>
-                        <p class="healthy-food-two__left-text">Voluptate velit essects quis tempor orci.
-                            Suspendisse
-                            that potenti simply free text faucibus.</p>
+                        <p class="healthy-food-two__left-text">We provide you with your garden bagged and on the go.
+                            </p>
                         <ul class="healthy-food-two__points list-unstyled">
                             <li class="healthy-food-two__points-list">
                                 <div class="healthy-food-two__points-icon">
                                     <span class="icon-tick"></span>
                                 </div>
                                 <div class="healthy-food-two__points-text">
-                                    <p>Lorem Ipsum is not simply random text</p>
+                                    <p>100% Home grown</p>
                                 </div>
                             </li>
                             <li class="healthy-food-two__points-list">
@@ -351,7 +350,7 @@
                                     <span class="icon-tick"></span>
                                 </div>
                                 <div class="healthy-food-two__points-text">
-                                    <p>If you are going to use a passage</p>
+                                    <p>Natural soil and bagged.</p>
                                 </div>
                             </li>
                             <li class="healthy-food-two__points-list">
@@ -359,7 +358,7 @@
                                     <span class="icon-tick"></span>
                                 </div>
                                 <div class="healthy-food-two__points-text">
-                                    <p>Making this the first true generator on the Internet</p>
+                                    <p>Easy purchase and delivery service.</p>
                                 </div>
                             </li>
                             <li class="healthy-food-two__points-list">
@@ -367,11 +366,11 @@
                                     <span class="icon-tick"></span>
                                 </div>
                                 <div class="healthy-food-two__points-text">
-                                    <p>Various versions have evolved over the years</p>
+                                    <p>Read and comment about our products.</p>
                                 </div>
                             </li>
                         </ul>
-                        <a href="products.html" class="thm-btn healthy-food-two__btn">Shop Now <i
+                        <a href="{{route('user.all.products.view')}}" class="thm-btn healthy-food-two__btn">Shop Now <i
                                 class="icon-right-arrow"></i> </a>
                     </div>
                 </div>
@@ -409,7 +408,7 @@
 <!--Healthy Food Two End-->
 
 <!--Brand One Start-->
-<section class="brand-one">
+{{-- <section class="brand-one">
     <div class="brand-one__inner">
         <div class="container">
             <div class="row">
@@ -475,11 +474,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!--Brand One End-->
 
 <!--Testimonial Three Start-->
-<section class="testimonial-three">
+{{-- <section class="testimonial-three">
     <div class="testimonial-three__shape-1"
         style="background-image: url(assets/images/shapes/testimonial-three-shape-1.png);"></div>
     <div class="container">
@@ -674,11 +673,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!--Testimonial Three End-->
 
 <!--New Product Two Start-->
-<section class="new-product-two">
+{{-- <section class="new-product-two">
     <div class="container">
         <div class="section-title text-center">
             <span class="section-title__tagline">Checkout Our Products</span>
@@ -806,57 +805,9 @@
             <!--New Product Single End-->
         </div>
     </div>
-</section>
+</section> --}}
 <!--New Product Two End-->
 
-<!--Organic Only Start-->
-<section class="organic-only">
-    <div class="organic-only__wrap">
-        <div class="organic-only__left">
-            <div class="organic-only__bg"
-                style="background-image: url(assets/images/backgrounds/organic-only-bg-img-1.jpg);"></div>
-        </div>
-        <div class="organic-only__right">
-            <div class="organic-only__bg-shape float-bob-x">
-                <img src="/assets/guest/assets/images/shapes/organic-only-bg-shape-1.png" alt="">
-            </div>
-            <div class="organic-only__icon">
-                <img src="/assets/guest/assets/images/icon/organic-only-icon.png" alt="">
-            </div>
-            <div class="organic-only__content">
-                <div class="section-title text-left">
-                    <span class="section-title__tagline">Online Store</span>
-                    <h2 class="section-title__title">Organic Food only</h2>
-                    <div class="section-title__icon">
-                        <img src="/assets/guest/assets/images/icon/section-title-icon-1.png" alt="">
-                    </div>
-                </div>
-                <p class="organic-only__text">Etiam ullamcorper arcu quis eros dapibus, simply ut aliquam dui
-                    ornare. Voluptate velit essects quis tempor orci.</p>
-                <ul class="organic-only__points list-unstyled">
-                    <li class="organic-only__points-list">
-                        <div class="organic-only__points-icon">
-                            <span class="icon-harvest-2"></span>
-                        </div>
-                        <h3 class="organic-only__points-text">Fresh <br> Vagetables</h3>
-                    </li>
-                    <li class="organic-only__points-list">
-                        <div class="organic-only__points-icon">
-                            <span class="icon-growth"></span>
-                        </div>
-                        <h3 class="organic-only__points-text">Organic <br> Products</h3>
-                    </li>
-                    <li class="organic-only__points-list">
-                        <div class="organic-only__points-icon">
-                            <span class="icon-dairy-products"></span>
-                        </div>
-                        <h3 class="organic-only__points-text">Dairy <br> Products</h3>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
 <!--Provide One End-->
 
 <!--Blog One Start-->
@@ -870,14 +821,21 @@
             </div>
         </div>
         <div class="row">
+
+            @foreach ($blogs as $b)
+
+            @php
+                $images = explode('|', $b->image)
+
+            @endphp
+
             <!--Blog One Single Start-->
             <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="100ms">
                 <div class="blog-one__single">
                     <div class="blog-one__img">
-                        <img src="/assets/guest/assets/images/blog/blog-one-1.jpg" alt="">
+                        <img style="height: 300px; width: 300px;" src="/assets/BlogImages/{{$images[0]}}" alt="">
                         <div class="blog-one__date">
-                            <span>28</span>
-                            <p>Aug</p>
+                            <span>{{$b->created_at->diffForHumans()}}</span>
                         </div>
                     </div>
                     <div class="blog-one__content">
@@ -886,65 +844,16 @@
                                 <a href="blog-details.html"><i class="fas fa-user-circle"></i>Admin</a>
                             </li>
                             <li>
-                                <a href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
+                                <a href="blog-details.html"><i class="fas fa-comments"></i>{{$b->comments->count()}}</a>
                             </li>
                         </ul>
-                        <h3 class="blog-one__title"><a href="blog-details.html">Why Agriculture & Eco is for the
-                                Envoirment</a></h3>
+                        <h3 class="blog-one__title"><a href="blog-details.html">{{$b->title}}</a></h3>
                     </div>
                 </div>
             </div>
             <!--Blog One Single End-->
-            <!--Blog One Single Start-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="200ms">
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="/assets/guest/assets/images/blog/blog-one-2.jpg" alt="">
-                        <div class="blog-one__date">
-                            <span>28</span>
-                            <p>Aug</p>
-                        </div>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="blog-one__meta list-unstyled">
-                            <li>
-                                <a href="blog-details.html"><i class="fas fa-user-circle"></i>Admin</a>
-                            </li>
-                            <li>
-                                <a href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title"><a href="blog-details.html">Wheat Harvest Organic Gather
-                                nice Moment</a></h3>
-                    </div>
-                </div>
-            </div>
-            <!--Blog One Single End-->
-            <!--Blog One Single Start-->
-            <div class="col-xl-4 col-lg-4 wow fadeInUp" data-wow-delay="300ms">
-                <div class="blog-one__single">
-                    <div class="blog-one__img">
-                        <img src="/assets/guest/assets/images/blog/blog-one-3.jpg" alt="">
-                        <div class="blog-one__date">
-                            <span>28</span>
-                            <p>Aug</p>
-                        </div>
-                    </div>
-                    <div class="blog-one__content">
-                        <ul class="blog-one__meta list-unstyled">
-                            <li>
-                                <a href="blog-details.html"><i class="fas fa-user-circle"></i>Admin</a>
-                            </li>
-                            <li>
-                                <a href="blog-details.html"><i class="fas fa-comments"></i>2 Comments</a>
-                            </li>
-                        </ul>
-                        <h3 class="blog-one__title"><a href="blog-details.html">Agriculture Matters to the
-                                Future of World</a></h3>
-                    </div>
-                </div>
-            </div>
-            <!--Blog One Single End-->
+            @endforeach
+
         </div>
     </div>
 </section>
@@ -954,7 +863,7 @@
 <section class="instagram">
     <div class="container">
         <div class="instagram__title">
-            <h3>Follow agrion on Instagram</h3>
+            <h3>Follow GreenSpring on Socials</h3>
         </div>
         <div class="row">
             <!--Instagram Single Start-->
@@ -962,8 +871,9 @@
                 <div class="instagram__single">
                     <div class="instagram__img">
                         <img src="/assets/guest/assets/images/resources/instagram-1.jpg" alt="">
+                        <i class="fa  fa-4x fa-facebook"></i>
                         <div class="instagram__img-icon">
-                            <a href="#"><span class="fab fa-instagram"></span></a>
+                            <a href="#"><span class="fab fa-facebook"></span></a>
                         </div>
                     </div>
                 </div>
@@ -974,6 +884,8 @@
                 <div class="instagram__single">
                     <div class="instagram__img">
                         <img src="/assets/guest/assets/images/resources/instagram-2.jpg" alt="">
+
+                        <i class="fa  fa-4x fa-instagram"></i>
                         <div class="instagram__img-icon">
                             <a href="#"><span class="fab fa-instagram"></span></a>
                         </div>
@@ -986,49 +898,15 @@
                 <div class="instagram__single">
                     <div class="instagram__img">
                         <img src="/assets/guest/assets/images/resources/instagram-3.jpg" alt="">
+                        <i class="fa  fa-4x fa-twitter"></i>
+
                         <div class="instagram__img-icon">
-                            <a href="#"><span class="fab fa-instagram"></span></a>
+                            <a href="#"><span class="fab fa-twitter"></span></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Instagram Single End-->
-            <!--Instagram Single Start-->
-            <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="400ms">
-                <div class="instagram__single">
-                    <div class="instagram__img">
-                        <img src="/assets/guest/assets/images/resources/instagram-4.jpg" alt="">
-                        <div class="instagram__img-icon">
-                            <a href="#"><span class="fab fa-instagram"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Instagram Single End-->
-            <!--Instagram Single Start-->
-            <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="500ms">
-                <div class="instagram__single">
-                    <div class="instagram__img">
-                        <img src="/assets/guest/assets/images/resources/instagram-5.jpg" alt="">
-                        <div class="instagram__img-icon">
-                            <a href="#"><span class="fab fa-instagram"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Instagram Single End-->
-            <!--Instagram Single Start-->
-            <div class="col-xl-2 col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="600ms">
-                <div class="instagram__single">
-                    <div class="instagram__img">
-                        <img src="/assets/guest/assets/images/resources/instagram-6.jpg" alt="">
-                        <div class="instagram__img-icon">
-                            <a href="#"><span class="fab fa-instagram"></span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Instagram Single End-->
+
         </div>
     </div>
 </section>

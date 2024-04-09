@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Blog;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -12,6 +13,8 @@ class GuestLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.guest');
+        $blogs = Blog::latest()->paginate(2);
+
+        return view('layouts.guest', compact('blogs'));
     }
 }

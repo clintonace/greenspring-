@@ -25,12 +25,22 @@ Route::prefix('admin')->group(function () {
     Route::post('/delete/{user}', [UserController::class, 'deleteUser'])->name('delete.user');
 
 
+    Route::post('/searchProduct/view', [ProductController::class, 'searchProduct'])->name('admin.search.product');
+
+    Route::get('/singleProduct/view/{slug}', [ProductController::class, 'singleProductView'])->name('admin.single.product.view');
     Route::get('/addProduct/view', [ProductController::class, 'addProductView'])->name('admin.add.product.view');
     Route::post('/addProduct', [ProductController::class, 'addProduct'])->name('admin.add.product');
+    Route::post('/editProduct/{product}', [ProductController::class, 'editProduct'])->name('admin.edit.product');
+    Route::get('/editProduct/view/{product}', [ProductController::class, 'editProductView'])->name('admin.edit.product.view');
+    Route::post('/deleteProduct/{product}', [ProductController::class, 'deleteProduct'])->name('admin.delete.product');
+
+    Route::post('/editProductImage/{img}/{product}', [ProductController::class, 'editProductImage'])->name('admin.edit.product.image');
+    Route::post('/deleteProductImage/{img}/{product}', [ProductController::class, 'deleteProductImage'])->name('admin.delete.product.image');
 
     Route::get('/addTools/view', [ProductController::class, 'addToolsView'])->name('admin.add.tools.view');
     Route::post('/addTag', [ProductController::class, 'addTag'])->name('admin.add.tag');
     Route::post('/addCategory', [ProductController::class, 'addCategory'])->name('admin.add.category');
+    Route::post('/editProductCategory/{cat}', [ProductController::class, 'editProductCategory'])->name('admin.edit.product.category');
 
     Route::get('/allProducts', [ProductController::class, 'allProducts'])->name('admin.all.products');
 
@@ -39,6 +49,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/singleOrder/{purchase}', [ProductController::class, 'singleOrder'])->name('admin.single.order');
     Route::post('/delivered/{order}', [ProductController::class, 'deliveredOrder'])->name('admin.deliver.order');
     Route::post('/returned/{order}', [ProductController::class, 'returnedOrder'])->name('admin.return.order');
+
 
     Route::prefix('blog')->group(function () {
 
@@ -58,6 +69,10 @@ Route::prefix('admin')->group(function () {
         Route::get('/singleComment/view/{id}', [BlogController::class, 'singleCommentView'])->name('admin.single.comment.view');
         Route::post('/commentApprove/{id}', [BlogController::class, 'commentApprove'])->name('admin.approve.comment');
         Route::post('/commentDelete/{id}', [BlogController::class, 'commentDelete'])->name('admin.delete.comment');
+
+
+        Route::get('/pendingComment/view', [BlogController::class, 'pendingCommentsView'])->name('admin.pending.comment.view');
+        Route::get('/approvedComment/view', [BlogController::class, 'approvedCommentsView'])->name('admin.approved.comment.view');
 
 
         Route::post('/addComment', [BlogController::class, 'addComment'])->name('admin.add.comment');

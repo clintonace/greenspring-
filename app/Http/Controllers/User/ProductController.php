@@ -9,6 +9,28 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function aboutUsView()
+    {
+
+        return view('about');
+    }
+    public function serviceView()
+    {
+
+        return view('service');
+    }
+    public function contactView()
+    {
+
+        return view('contact');
+    }
+    public function allBlogsView()
+    {
+
+        return view('allBlogs');
+    }
+
     public function allProductsView()
     {
 

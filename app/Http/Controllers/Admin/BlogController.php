@@ -15,9 +15,53 @@ use RealRashid\SweetAlert\Facades\Alert;
 class BlogController extends Controller
 {
 
+
+    public function approvedCommentsView()
+    {
+
+        $comments = Comment::whereApproval(1)->latest()->paginate(10);
+        return view('admin.manageBlog.approvedComment', compact('comments'));
+
+    }
+    public function pendingCommentsView()
+    {
+
+        $comments = Comment::whereApproval(0)->latest()->paginate(10);
+        return view('admin.manageBlog.pendingComments', compact('comments'));
+
+    }
+    public function deleteBlogImage(Request $request, $img, $b)
+    {
+
+
+        $blog = Blog::find($b);
+
+        // Get the path of the old image
+        $oldImagePath = public_path('/assets/BlogImages') . DIRECTORY_SEPARATOR . $img;
+
+        File::delete($oldImagePath);
+
+        $images=explode('|',$blog->image);
+        $index=array_search($img,$images,true);
+
+        if ($index !== false) {
+            unset($images[$index]); // Delete the element at the specified index
+        }
+
+        $blog->image= implode('|',$images);
+        $blog->save();
+
+        Alert::success('Success','Image Deleted Successfully');
+        return back();
+
+    }
+
     public function editBlogImage(Request $request, $img, $b)
     {
 
+        $request->validate([
+            'image'=>'required',
+        ]);
 
         $blog = Blog::find($b);
 
@@ -169,6 +213,16 @@ class BlogController extends Controller
 
     }
 
+    public function commentDelete($c)
+    {
+
+        $comment = Comment::find($c);
+        $comment->delete();
+        Alert::success('success', 'Comment Deleted successfully.');
+        return redirect()->route('admin.all.blogs');
+
+    }
+
     public function addBlogToolsView()
     {
         $cats = Blogcategory::all();
@@ -214,7 +268,7 @@ class BlogController extends Controller
         $blog = Blog::whereSlug($slug)->first();
 
         return view('admin.manageBlog.singleBlog', compact('blog'));
-     }
+    }
 
      public function editBlogView($slug)
      {
@@ -278,7 +332,6 @@ class BlogController extends Controller
      {
 
         $comment = Comment::find($c);
-
         $comment->approval = 1;
         $comment->save();
 
@@ -287,15 +340,12 @@ class BlogController extends Controller
 
      }
 
-     public function deleteApprove($c)
+     public function deleteBlog($b)
      {
 
-        $comment = Comment::find($c);
-        $comment->delete();
-
-        Alert::success('Success', 'Deleted Comment Successfully.');
+        $blog = Blog::find($b);
+        Alert::success('Success', 'Blog deleted successfully.');
         return back();
-
      }
 
 }

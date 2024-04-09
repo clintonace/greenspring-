@@ -15,15 +15,7 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
+
             </div>
             <!-- .row -->
         </div>
@@ -36,7 +28,7 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <h3>All Orders</h3>
+                    <h3>All Products</h3>
                 </div>
                 <!-- .col-* -->
             </div>
@@ -47,52 +39,18 @@
                     <div class="with_border with_padding">
 
                         <div class="row admin-table-filters">
-                            <div class="col-lg-9">
 
-                                <form action="https://html.modernwebtemplates.com/greenscape/"
-                                    class="form-inline filters-form">
-                                    <span>
-                                        <label class="grey" for="with-selected">With Selected:</label>
-                                        <select class="form-control with-selected" name="with-selected"
-                                            id="with-selected">
-                                            <option value="">-</option>
-                                            <option value="publish">Publish</option>
-                                            <option value="delete">Delete</option>
-                                        </select>
-                                    </span>
-                                    <span>
-                                        <label class="grey" for="orderby">Sort By:</label>
-                                        <select class="form-control orderby" name="orderby" id="orderby">
-                                            <option value="date" selected>Date</option>
-                                            <option value="price">Price</option>
-                                            <option value="title">Title</option>
-                                            <option value="status">Status</option>
-                                        </select>
-                                    </span>
-
-                                    <span>
-                                        <label class="grey" for="showcount">Show:</label>
-                                        <select class="form-control showcount" name="showcount" id="showcount">
-                                            <option value="10" selected>10</option>
-                                            <option value="20">20</option>
-                                            <option value="30">30</option>
-                                            <option value="50">50</option>
-                                            <option value="100">100</option>
-                                        </select>
-                                    </span>
-                                </form>
-
-                            </div>
                             <!-- .col-* -->
                             <div class="col-lg-3 text-lg-right">
                                 <div class="widget widget_search">
 
-                                    <form method="get" class="searchform form-inline"
-                                        action="https://html.modernwebtemplates.com/greenscape/">
+                                    <form method="POST" class="form-inline"
+                                        action="{{route('admin.search.product')}}">
+                                        @csrf
                                         <div class="form-group">
                                             <label class="screen-reader-text" for="widget-search">Search for:</label>
-                                            <input id="widget-search" type="text" value="" name="search"
-                                                class="form-control" placeholder="Search">
+                                            <input id="widget-search" type="text" name="search"
+                                                class="form-control" placeholder="Search for Product">
                                         </div>
                                         <button type="submit" class="theme_button">Search</button>
                                     </form>
@@ -108,45 +66,70 @@
 
                                 <tr>
                                     <td class="media-middle text-center">
-                                        <input type="checkbox">
+                                        No:
                                     </td>
-                                    <th>Title:</th>
+                                    <th>Name:</th>
+                                    <th>Quantity:</th>
                                     <th>Price:</th>
-                                    <th>Date:</th>
-                                    <th>Categories:</th>
                                     <th>Status:</th>
+                                    <th>Date:</th>
+                                    <th>Action:</th>
+
                                 </tr>
+                                @foreach ($products as $p)
+
+                                @php
+                                $img = explode('|', $p->image);
+                                if ($img == null) {
+
+                                    $img = 'alt';
+                                };
+                                @endphp
+
                                 <tr class="item-editable">
                                     <td class="media-middle text-center">
-                                        <input type="checkbox">
+                                        {{$loop->index =+ 1}}
                                     </td>
                                     <td>
                                         <div class="media">
                                             <div class="media-left media-middle">
-                                                <img src="images/shop/01.png" alt="...">
+                                                <img src="/assets/ProductImage/{{$img[0]}}" alt="...">
                                             </div>
                                             <div class="media-body media-middle">
                                                 <h5>
-                                                    <a href="admin_product.html">Consectetur adipisicing elit</a>
+                                                    <a href="{{route('admin.single.product.view', $p->slug)}}">{{$p->name}}</a>
                                                 </h5>
                                             </div>
                                         </div>
                                     </td>
+
                                     <td class="media-middle">
-                                        <strong>
-                                            $55.00
-                                        </strong>
+                                        {{$p->quantity}}
                                     </td>
                                     <td class="media-middle">
-                                        <time datetime="2017-02-08T20:25:23+00:00" class="entry-date">08.02.2017 at 20:25</time>
+                                        ₦{{number_format($p->price)}}
                                     </td>
                                     <td class="media-middle">
-                                        uncategorized, category1
+                                        {{$p->status}}
                                     </td>
                                     <td class="media-middle">
-                                        Published
+                                        {{$p->created_at->diffForHumans()}}
                                     </td>
+
+                                    <td class="media-middle">
+                                        <div style="display: flex; justify-content: space-between">
+                                            <a  style="color: white"  class="btn btn-danger" href="{{route('admin.single.product.view', $p->slug)}}"><i class="fa fa-eye"></i></a>
+                                            <form action="{{route('admin.delete.product', $p->id)}}" method="POST">
+                                                @csrf
+                                                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                            <a style="color: white" class="btn btn-danger" href="{{route('admin.edit.product.view', $p->slug)}}"><i class="fa fa-pencil"></i></a>
+                                        </div>
+                                    </td>
+                                    
                                 </tr>
+                                @endforeach
+
                             </table>
                         </div>
                         <!-- .table-responsive -->
@@ -161,19 +144,10 @@
                     <div class="row">
                         <div class="col-md-6">
                             <ul class="pagination">
-                                <li class="disabled">
-                                    <span>Prev</span>
-                                </li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">Next</a></li>
+                                {{ $products->links() }}
                             </ul>
                         </div>
-                        <div class="col-md-6 text-md-right">
-                            Showing 1 to 6 of 12 items
-                        </div>
+
                     </div>
                 </div>
             </div>

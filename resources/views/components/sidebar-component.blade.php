@@ -38,6 +38,12 @@
                 Manage Blogs
             </a>
             <ul>
+
+                <li>
+                    <a href="{{route('admin.add.blog.tools.view')}}">
+                        Add Tools
+                    </a>
+                </li>
                 <li>
                     <a href="{{route('admin.all.blogs')}}">
                         Blogs
@@ -48,19 +54,15 @@
                         Add Blog
                     </a>
                 </li>
+
                 <li>
-                    <a href="{{route('admin.add.blog.tools.view')}}">
-                        Add Tools
-                    </a>
-                </li>
-                <li>
-                    <a href="admin_post.html">
+                    <a href="{{route('admin.pending.comment.view')}}">
                         Pending comments
                     </a>
                 </li>
                 <li>
-                    <a href="admin_post.html">
-                        Approved comments
+                    <a href="{{route('admin.approved.comment.view')}}">
+                        Valid comments
                     </a>
                 </li>
 
@@ -73,7 +75,7 @@
             </a>
             <ul>
                 <li>
-                    <a href="admin_products.html">
+                    <a href="{{route('admin.all.products')}}">
                         Products
                     </a>
                 </li>
@@ -101,7 +103,7 @@
                         Orders
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="admin_order.html">
                         Completed Orders
                     </a>
@@ -110,7 +112,7 @@
                     <a href="admin_order.html">
                         Failed Orders
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </li>
 

@@ -52,7 +52,7 @@
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle">
                                         <div class="teaser_icon label-success fontsize_16 round">
-                                            <i class="fa fa-calendar"></i>
+                                            <i class="fa fa-comment"></i>
                                         </div>
                                     </div>
                                     <div class="media-body media-middle">
@@ -62,11 +62,24 @@
                                         {{$comment->comment}}
                                     </div>
 
-                                    <form action="{{route('admin.approve.comment', $comment->id)}}" method="POST">
-                                        @csrf
-                                        <button class="btn btn-success">Approve</button>
-                                    </form>
 
+                                    <div style="margin-top: 20px">
+
+                                        @if ($comment->approval != 1)
+
+                                        <form action="{{route('admin.approve.comment', $comment->id)}}" method="POST">
+                                            @csrf
+                                            <button class="btn btn-success">Approve</button>
+                                        </form>
+
+                                        @else
+                                        <form action="{{route('admin.delete.comment', $comment->id)}}" method="POST">
+                                            @csrf
+                                            <button class="btn btn-success">Delete/Dissapprove</button>
+                                        </form>
+                                        @endif
+
+                                    </div>
                                 </div>
                             </li>
                         </ul>

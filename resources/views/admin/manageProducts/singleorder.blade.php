@@ -15,15 +15,7 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
+
             </div>
             <!-- .row -->
         </div>
@@ -69,7 +61,7 @@
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle">
                                         <div class="teaser_icon label-info fontsize_16 round">
-                                            <i class="fa fa-globe"></i>
+                                            <i class="fa fa-circle"></i>
                                         </div>
                                     </div>
                                     <div class="media-body media-middle">
@@ -111,8 +103,6 @@
                                 </div>
                             </li>
                         </ul>
-
-
                     </div>
                     <!-- .muted_background -->
                 </div>

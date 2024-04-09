@@ -71,7 +71,7 @@
                                     <span class="fas fa-phone"></span>
                                 </div>
                                 <div class="text">
-                                    <p><a href="tel:9200886823">+92 (0088) 6823</a></p>
+                                    <p><a href="tel:09160334710">091 6033 4710</a></p>
                                 </div>
                             </li>
                             <li>
@@ -79,14 +79,14 @@
                                     <span class="fas fa-user"></span>
                                 </div>
                                 <div class="text">
-                                    <p><a href="#">Login / Register</a></p>
+                                    <p><a href="{{route('login')}}">Login / </a><a href="{{route('register')}}">Register</a></p>
                                 </div>
                             </li>
                         </ul>
                         <div class="main-header-three__logo">
                             <a href="index.html"><img src="/assets/greenspringlogo.png" alt=""></a>
                         </div>
-                        <div class="main-menu-three__search-cart-btn-box">
+                        {{-- <div class="main-menu-three__search-cart-btn-box">
                             <div class="main-menu-three__search-box">
                                 <a href="#" class="main-menu-three__search search-toggler icon-magnifying-glass"></a>
                             </div>
@@ -97,7 +97,7 @@
                                 <a href="contact.html" class="thm-btn main-menu-three__btn">Get Free Quote
                                     <i class="icon-right-arrow"></i> </a>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
@@ -109,172 +109,22 @@
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                 <ul class="main-menu__list">
                                     <li class="dropdown current megamenu">
-                                        <a href="index.html">Home </a>
-                                        <ul>
-                                            <li>
-                                                <section class="home-showcase">
-                                                    <div class="container">
-                                                        <div class="home-showcase__inner">
-                                                            <div class="row">
-                                                                <div class="col-lg-3">
-                                                                    <div class="home-showcase__item">
-                                                                        <div class="home-showcase__image">
-                                                                            <img src="/assets/guest/assets/images/home-showcase/home-showcase-1-1.jpg"
-                                                                                alt="">
-                                                                            <div class="home-showcase__buttons">
-                                                                                <a href="index.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">Multi
-                                                                                    Page</a>
-                                                                                <a href="index-one-page.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">One
-                                                                                    Page</a>
-                                                                            </div>
-                                                                            <!-- /.home-showcase__buttons -->
-                                                                        </div>
-                                                                        <!-- /.home-showcase__image -->
-                                                                        <h3 class="home-showcase__title">
-                                                                            Home
-                                                                            page
-                                                                            01</h3>
-                                                                        <!-- /.home-showcase__title -->
-                                                                    </div><!-- /.home-showcase__item -->
-                                                                </div><!-- /.col-lg-3 -->
-                                                                <div class="col-lg-3">
-                                                                    <div class="home-showcase__item">
-                                                                        <div class="home-showcase__image">
-                                                                            <img src="/assets/guest/assets/images/home-showcase/home-showcase-1-2.jpg"
-                                                                                alt="">
-                                                                            <div class="home-showcase__buttons">
-                                                                                <a href="index2.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">Multi
-                                                                                    Page</a>
-                                                                                <a href="index2-one-page.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">One
-                                                                                    Page</a>
-                                                                            </div>
-                                                                            <!-- /.home-showcase__buttons -->
-                                                                        </div>
-                                                                        <!-- /.home-showcase__image -->
-                                                                        <h3 class="home-showcase__title">
-                                                                            Home
-                                                                            page
-                                                                            02
-                                                                        </h3>
-                                                                        <!-- /.home-showcase__title -->
-                                                                    </div><!-- /.home-showcase__item -->
-                                                                </div><!-- /.col-lg-3 -->
-                                                                <div class="col-lg-3">
-                                                                    <div class="home-showcase__item">
-                                                                        <div class="home-showcase__image">
-                                                                            <img src="/assets/guest/assets/images/home-showcase/home-showcase-1-3.jpg"
-                                                                                alt="">
-                                                                            <div class="home-showcase__buttons">
-                                                                                <a href="index3.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">Multi
-                                                                                    Page</a>
-                                                                                <a href="index3-one-page.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">One
-                                                                                    Page</a>
-                                                                            </div>
-                                                                            <!-- /.home-showcase__buttons -->
-                                                                        </div>
-                                                                        <!-- /.home-showcase__image -->
-                                                                        <h3 class="home-showcase__title">
-                                                                            Home
-                                                                            page
-                                                                            03
-                                                                        </h3>
-                                                                        <!-- /.home-showcase__title -->
-                                                                    </div><!-- /.home-showcase__item -->
-                                                                </div><!-- /.col-lg-3 -->
-                                                                <div class="col-lg-3">
-                                                                    <div class="home-showcase__item">
-                                                                        <div class="home-showcase__image">
-                                                                            <img src="/assets/guest/assets/images/home-showcase/home-showcase-1-4.jpg"
-                                                                                alt="">
-                                                                            <div class="home-showcase__buttons">
-                                                                                <a href="index-dark.html"
-                                                                                    class="thm-btn home-showcase__buttons__item">View
-                                                                                    Page</a>
-                                                                            </div>
-                                                                            <!-- /.home-showcase__buttons -->
-                                                                        </div>
-                                                                        <!-- /.home-showcase__image -->
-                                                                        <h3 class="home-showcase__title">
-                                                                            Home
-                                                                            page
-                                                                            04
-                                                                        </h3>
-                                                                        <!-- /.home-showcase__title -->
-                                                                    </div><!-- /.home-showcase__item -->
-                                                                </div><!-- /.col-lg-3 -->
-                                                            </div><!-- /.row -->
-                                                        </div><!-- /.home-showcase__inner -->
-
-                                                    </div><!-- /.container -->
-                                                </section>
-                                            </li>
-                                        </ul>
+                                        <a href="{{route('/')}}">Home </a>
                                     </li>
                                     <li>
                                         <a href="about.html">About</a>
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">Services</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="services.html">Services</a>
-                                            </li>
-                                            <li><a href="services-carousel.html">Services Carousel</a>
-                                            </li>
-                                            <li><a href="agriculture-products.html">Agriculture
-                                                    Products</a></li>
-                                            <li><a href="organic-products.html">Organic Products</a>
-                                            </li>
-                                            <li><a href="fresh-vegetables.html">Fresh Vegetables</a>
-                                            </li>
-                                            <li><a href="dairy-products.html">Dairy Products</a></li>
-                                        </ul>
                                     </li>
-                                    <li class="dropdown">
-                                        <a href="#">Projects</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="project-01.html">Projects 01</a></li>
-                                            <li><a href="project-02.html">Projects 02</a></li>
-                                            <li><a href="project-carousel.html">Project Carousel</a>
-                                            </li>
-                                            <li><a href="project-details.html">Project Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a href="#">Pages</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="farmers.html">Farmers</a></li>
-                                            <li><a href="farmers-carousel.html">Farmers Carousel</a>
-                                            </li>
-                                            <li><a href="testimonials.html">Testimonials</a></li>
-                                            <li><a href="testimonials-carousel.html">Testimonial
-                                                    Carousel</a></li>
-                                            <li><a href="faq.html">FAQs</a></li>
-                                            <li><a href="404.html">404 Error</a></li>
-                                        </ul>
-                                    </li>
+
                                     <li class="dropdown">
                                         <a href="#">Blog</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-carousel.html">Blog Carousel</a></li>
-                                            <li><a href="blog-sidebar.html">Blog Sidebar</a></li>
-                                            <li><a href="blog-details.html">Blog Details</a></li>
-                                        </ul>
+
                                     </li>
                                     <li class="dropdown">
                                         <a href="#">Shop</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="products.html">Products</a></li>
-                                            <li><a href="product-details.html">Product Details</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                        </ul>
+
                                     </li>
                                     <li>
                                         <a href="contact.html">Contact</a>
@@ -314,8 +164,7 @@
                                                 alt=""></a>
                                     </div>
                                     <div class="footer-widget__about-text-box">
-                                        <p class="footer-widget__about-text">Welcome to our Agriculture Farming. Lorem
-                                            simply text amet cing elit.</p>
+                                        <p class="footer-widget__about-text">Welcome to our Natural farm produce market and blog.</p>
                                     </div>
                                 </div>
                             </div>
@@ -326,8 +175,8 @@
                                     </div>
                                     <ul class="footer-widget__Explore-list list-unstyled">
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="farmers.html">Our Farmers</a></li>
-                                        <li><a href="project-01.html">New Projects</a></li>
+                                        <li><a href="farmers.html">Shop</a></li>
+                                        <li><a href="project-01.html">Blogs</a></li>
                                         <li><a href="services.html">Services</a></li>
                                         <li><a href="contact.html">Contact</a></li>
                                     </ul>
@@ -336,33 +185,29 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
                                 <div class="footer-widget__column footer-widget__news">
                                     <div class="footer-widget__title-box">
-                                        <h3 class="footer-widget__title">News</h3>
+                                        <h3 class="footer-widget__title">Blogs</h3>
                                     </div>
                                     <ul class="footer-widget__news-list list-unstyled">
+
+                                        @foreach ($blogs as $b)
+
+                                        @php
+                                            $image = explode('|', $b->image);
+                                        @endphp
+
                                         <li>
                                             <div class="footer-widget__news-img">
-                                                <img src="/assets/guest/assets/images/resources/footer-widget-news-img-1.jpg" alt="">
+                                                <img style="height: 50px; width: 50px;" src="/assets/BlogImages/{{$image[0]}}" alt="">
                                             </div>
                                             <div class="footer-widget__news-content">
-                                                <p class="footer-widget__news-date">20 Jul, 2022</p>
-                                                <h5 class="footer-widget__news-sub-title"><a href="blog-details.html">A
-                                                        Organic Food
-                                                        Gives
-                                                        More Good Taste</a></h5>
+                                                <p class="footer-widget__news-date">{{$b->created_at->diffForHumans()}}</p>
+                                                <h5 class="footer-widget__news-sub-title"><a href="#">{{$b->title}}</a></h5>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="footer-widget__news-img">
-                                                <img src="/assets/guest/assets/images/resources/footer-widget-news-img-2.jpg" alt="">
-                                            </div>
-                                            <div class="footer-widget__news-content">
-                                                <p class="footer-widget__news-date">20 Jul, 2022</p>
-                                                <h5 class="footer-widget__news-sub-title"><a href="blog-details.html">A
-                                                        Organic Food
-                                                        Gives
-                                                        More Good Taste</a></h5>
-                                            </div>
-                                        </li>
+
+                                        @endforeach
+
+
                                     </ul>
                                 </div>
                             </div>
@@ -377,7 +222,7 @@
                                                 <span class="fas fa-phone-square-alt"></span>
                                             </div>
                                             <div class="text">
-                                                <p><a href="tel:9200886823">+92 (0088) 6823</a></p>
+                                                <p><a href="tel:09160334710">09160334710</a></p>
                                             </div>
                                         </li>
                                         <li>
@@ -385,7 +230,7 @@
                                                 <span class="fas fa-envelope"></span>
                                             </div>
                                             <div class="text">
-                                                <p><a href="mailto:needhelp@company.com">needhelp@company.com</a></p>
+                                                <p><a href="#">greenspring@gmail.com</a></p>
                                             </div>
                                         </li>
                                         <li>
@@ -393,17 +238,17 @@
                                                 <span class="icon-pin"></span>
                                             </div>
                                             <div class="text">
-                                                <p>80 Broklyn Golden Street. USA</p>
+                                                <p>#58 Circular Road Federal Housing Estate Off Peter Odili Road</p>
                                             </div>
                                         </li>
                                     </ul>
-                                    <form class="footer-widget__Contact-form">
+                                    {{-- <form class="footer-widget__Contact-form">
                                         <div class="footer-widget__Contact-input-box">
                                             <input type="email" placeholder="Email Address" name="email">
                                             <button type="submit" class="footer-widget__Contact-btn"><i
                                                     class="icon-right-arrow"></i></button>
                                         </div>
-                                    </form>
+                                    </form> --}}
                                 </div>
                             </div>
                         </div>
@@ -415,7 +260,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="site-footer__bottom-inner">
-                                <p class="site-footer__bottom-text">© Copyright 2022 by <a href="#">Agrion.com</a></p>
+                                <p class="site-footer__bottom-text">© Copyright 2024 by <a href="#">BrownCode</a></p>
                                 <div class="site-footer__social">
                                     <a href="#"><i class="fab fa-twitter"></i></a>
                                     <a href="#"><i class="fab fa-facebook"></i></a>
@@ -445,7 +290,7 @@
             <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
             <div class="logo-box">
-                <a href="index.html" aria-label="logo image"><img src="/assets/greenspringlogo.png" width="122"
+                <a href="{{route('/')}}" aria-label="logo image"><img src="/assets/greenspringlogo.png" width="122"
                         alt="" /></a>
             </div>
             <!-- /.logo-box -->
@@ -455,11 +300,11 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@agrion.com</a>
+                    <a href="#">greensprings@gmail.com</a>
                 </li>
                 <li>
                     <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
+                    <a href="tel:09160334710">09160334710</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">
