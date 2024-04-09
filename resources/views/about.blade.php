@@ -51,7 +51,7 @@
             <div class="col-xl-6">
                 <div class="about-three__right">
                     <div class="section-title text-left">
-                        <span class="section-title__tagline">Get to Know Agrion</span>
+                        <span class="section-title__tagline">Get to Know GreenSpring</span>
                         <h2 class="section-title__title">We’re agrion expert quality farming leaders</h2>
                         <div class="section-title__icon">
                             <img src="/assets/guest/assets/images/icon/section-title-icon-1.png" alt="">
@@ -235,7 +235,7 @@
 <!--Provide One End-->
 
 <!--Team One Start-->
-<section class="team-one team-two">
+{{-- <section class="team-one team-two">
     <div class="container">
         <div class="section-title text-center">
             <span class="section-title__tagline">Team Members</span>
@@ -361,11 +361,11 @@
             <!--Team One Single End-->
         </div>
     </div>
-</section>
+</section> --}}
 <!--Team One End-->
 
 <!--Testimonial Three Start-->
-<section class="testimonial-three">
+{{-- <section class="testimonial-three">
     <div class="testimonial-three__shape-1"
         style="background-image: url(assets/images/shapes/testimonial-three-shape-1.png);"></div>
     <div class="container">
@@ -560,7 +560,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> --}}
 <!--Testimonial Three End-->
 
 <!--Cta One Start-->
@@ -578,10 +578,10 @@
                         <h3 class="cta-one__title">We’re popular leader in agriculture <br> & Organic market.
                         </h3>
                     </div>
-                    <div class="cta-one__right">
+                    {{-- <div class="cta-one__right">
                         <a href="about.html" class="thm-btn cta-one__btn">Discover More <i
                                 class="icon-right-arrow"></i> </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

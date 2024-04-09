@@ -2,6 +2,7 @@
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -47,9 +48,20 @@
     <!-- template styles -->
     <link rel="stylesheet" href="/assets/guest/assets/css/agrion.css" />
     <link rel="stylesheet" href="/assets/guest/assets/css/agrion-responsive.css" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 
 <body class="custom-cursor">
+
+    @include('sweetalert::alert')
 
     <div class="custom-cursor__cursor"></div>
     <div class="custom-cursor__cursor-two"></div>
@@ -79,7 +91,8 @@
                                     <span class="fas fa-user"></span>
                                 </div>
                                 <div class="text">
-                                    <p><a href="{{route('login')}}">Login / </a><a href="{{route('register')}}">Register</a></p>
+                                    <p><a href="{{route('login')}}">Login / </a><a
+                                            href="{{route('register')}}">Register</a></p>
                                 </div>
                             </li>
                         </ul>
@@ -112,22 +125,22 @@
                                         <a href="{{route('/')}}">Home </a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About</a>
+                                        <a href="{{route('user.aboutus.view')}}">About</a>
                                     </li>
-                                    <li class="dropdown">
+                                    {{-- <li class="dropdown">
                                         <a href="#">Services</a>
-                                    </li>
+                                    </li> --}}
 
                                     <li class="dropdown">
-                                        <a href="#">Blog</a>
+                                        <a href="{{route('user.blog.view')}}">Blog</a>
 
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Shop</a>
+                                        <a href="{{route('user.all.products.view')}}">Shop</a>
 
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{route('user.contact.view')}}">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -160,11 +173,11 @@
                             <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                                 <div class="footer-widget__column footer-widget__about">
                                     <div class="footer-widget__logo">
-                                        <a href="index.html"><img src="/assets/greenspringlogo.png"
-                                                alt=""></a>
+                                        <a href="index.html"><img src="/assets/greenspringlogo.png" alt=""></a>
                                     </div>
                                     <div class="footer-widget__about-text-box">
-                                        <p class="footer-widget__about-text">Welcome to our Natural farm produce market and blog.</p>
+                                        <p class="footer-widget__about-text">Welcome to our Natural farm produce market
+                                            and blog.</p>
                                     </div>
                                 </div>
                             </div>
@@ -192,16 +205,19 @@
                                         @foreach ($blogs as $b)
 
                                         @php
-                                            $image = explode('|', $b->image);
+                                        $image = explode('|', $b->image);
                                         @endphp
 
                                         <li>
                                             <div class="footer-widget__news-img">
-                                                <img style="height: 50px; width: 50px;" src="/assets/BlogImages/{{$image[0]}}" alt="">
+                                                <img style="height: 50px; width: 50px;"
+                                                    src="/assets/BlogImages/{{$image[0]}}" alt="">
                                             </div>
                                             <div class="footer-widget__news-content">
-                                                <p class="footer-widget__news-date">{{$b->created_at->diffForHumans()}}</p>
-                                                <h5 class="footer-widget__news-sub-title"><a href="#">{{$b->title}}</a></h5>
+                                                <p class="footer-widget__news-date">{{$b->created_at->diffForHumans()}}
+                                                </p>
+                                                <h5 class="footer-widget__news-sub-title"><a href="#">{{$b->title}}</a>
+                                                </h5>
                                             </div>
                                         </li>
 
@@ -363,6 +379,74 @@
     <script src="/assets/guest/assets/vendors/timepicker/timePicker.js"></script>
     <script src="/assets/guest/assets/vendors/circleType/jquery.circleType.js"></script>
     <script src="/assets/guest/assets/vendors/circleType/jquery.lettering.min.js"></script>
+
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+
+    <script>
+        // Function to handle form submission and update progress bar
+            function submitForm(step) {
+                // You can add form validation logic here before proceeding to the next step
+                // For simplicity, I'm assuming all fields are required
+
+                // Hide the current form
+                document.getElementById('form' + step).style.display = 'none';
+
+                // Increment the progress bar value
+                const progressBar = document.getElementById('progressBar');
+                progressBar.value = step;
+
+                // Show the next form (if it exists)
+                const nextStep = step + 1;
+                const nextForm = document.getElementById('form' + nextStep);
+                if (nextForm) {
+                    nextForm.style.display = 'block';
+                } else {
+                    // All forms are completed, you can perform final submission here
+                    alert('All forms submitted successfully!');
+                }
+            }
+
+            var map = L.map('map').setView([51.505, -0.09], 13);
+            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(map);
+
+            L.Control.geocoder().addTo(map);
+
+            navigator.geolocation.watchPosition(success, error);
+
+            let marker , circle;
+
+            function success (pos){
+
+                const lng = pos.coords.longitude;
+                const lat = pos.coords.latitude;
+                const accuracy = pos.coords.accuracy;
+                if (marker) {
+
+                    map.removeLayer(marker);
+                    map.removeLayer(circle);
+                }
+
+               marker =  L.marker([lat, lng]).addTo(map);
+               circle =  L.circle([lat, lng], {raduis: accuracy}).addTo(map);
+
+                map.fitBounds(circle.getBounds());
+            }
+
+            function error(err){
+
+                if(err.code === 1){
+
+                    alert('allow access');
+                }
+                else{
+                    alert('cannot get');
+                }
+            }
+
+    </script>
 
     <!-- template js -->
     <script src="/assets/guest/assets/js/agrion.js"></script>

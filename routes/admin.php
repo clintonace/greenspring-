@@ -75,7 +75,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/approvedComment/view', [BlogController::class, 'approvedCommentsView'])->name('admin.approved.comment.view');
 
 
-        Route::post('/addComment', [BlogController::class, 'addComment'])->name('admin.add.comment');
+        Route::post('/addComment/{b}', [BlogController::class, 'addComment'])->name('admin.add.comment');
 
         Route::post('/addBlogTag', [BlogController::class, 'addBlogTag'])->name('admin.add.blog.tag');
         Route::post('/editBlogTag/{tag}', [BlogController::class, 'editBlogTag'])->name('admin.edit.blog.tag');

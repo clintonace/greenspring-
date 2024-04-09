@@ -3,7 +3,7 @@
 <html class="no-js">
 
 <head>
-    <title>Green Spring</title>
+    <title>GreenSpring</title>
     <meta charset="utf-8">
 
     <meta name="description" content="">

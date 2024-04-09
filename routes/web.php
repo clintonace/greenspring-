@@ -46,9 +46,13 @@ Route::get('/dashboard', function () {
 
 Route::prefix('guest')->group(function () {
 
+    Route::get('/allblogs/view', [ProductController::class, 'allBlogsView'])->name('user.blog.view');
+    Route::get('/contactus/view', [ProductController::class, 'contactView'])->name('user.contact.view');
     Route::get('/aboutus/view', [ProductController::class, 'aboutUsView'])->name('user.aboutus.view');
     Route::get('/allProducts/view', [ProductController::class, 'allProductsView'])->name('user.all.products.view');
     Route::get('/singleProduct/view/{product}', [ProductController::class, 'singleProductView'])->name('user.single.product.view');
+    Route::get('/singleBlog/view/{blog}', [ProductController::class, 'singleBlogView'])->name('user.single.blog.view');
+    Route::post('/searchProduct/view', [ProductController::class, 'searchProductView'])->name('user.search.product');
 });
 
 

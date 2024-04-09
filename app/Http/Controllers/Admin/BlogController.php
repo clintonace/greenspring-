@@ -201,12 +201,14 @@ class BlogController extends Controller
         $request->validate([
             'comment'=>'required|max:100',
             'email'=>'required|email',
+            'phone'=>'required|numeric',
         ]);
 
         $comment = new Comment();
         $comment->blog_id = $b;
         $comment->comment = $request->comment;
         $comment->email = $request->email;
+        $comment->phone = $request->phone;
         $comment->save();
         Alert::success('Success', 'Comment Added Successfully.');
         return back();
