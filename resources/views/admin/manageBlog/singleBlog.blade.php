@@ -15,15 +15,7 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
+
             </div>
             <!-- .row -->
         </div>
@@ -53,7 +45,7 @@
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle">
                                         <div class="teaser_icon label-success fontsize_16 round">
-                                            <i class="fa fa-calendar"></i>
+                                            <i class="fa fa-feed"></i>
                                         </div>
                                     </div>
                                     <div class="media-body media-middle">
@@ -68,7 +60,7 @@
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle">
                                         <div class="teaser_icon label-info fontsize_16 round">
-                                            <i class="fa fa-globe"></i>
+                                            <i class="fa fa-comment"></i>
                                         </div>
                                     </div>
                                     <div class="media-body media-middle">
@@ -94,13 +86,14 @@
                                     </div>
                                 </div>
                             </li>
+
                             @if ($blog->product != null)
 
                             <li>
                                 <div class="media small-teaser">
                                     <div class="media-left media-middle">
                                         <div class="teaser_icon label-warning fontsize_16 round">
-                                            <i class="fa fa-product-hunt"></i>
+                                            <i class="fa fa-circle"></i>
                                         </div>
                                     </div>
                                     <div class="media-body media-middle">
@@ -133,9 +126,6 @@
                     </div>
                     <!-- .muted_background -->
                 </div>
-                <!-- .col-* -->
-
-                <!-- .col-* -->
             </div>
             <!-- .row -->
         </div>

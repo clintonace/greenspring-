@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Category;
 use App\Models\Product;
@@ -11,6 +12,18 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('admin')->group(function () {
+
+
+    Route::get('/usersProfile/{user}', [UserController::class, 'usersProfile'])->name('users.profile');
+    Route::get('/users', [UserController::class, 'users'])->name('users');
+    Route::get('/myProfile', [UserController::class, 'myProfile'])->name('my.profile');
+    Route::post('/editProfile/{user}', [UserController::class, 'editProfile'])->name('edit.profile');
+
+    Route::post('/searchUser/view', [UserController::class, 'searchUser'])->name('admin.search.users');
+
+    Route::post('/giveRole/{user}', [UserController::class, 'giveRole'])->name('give.role');
+    Route::post('/delete/{user}', [UserController::class, 'deleteUser'])->name('delete.user');
+
 
     Route::get('/addProduct/view', [ProductController::class, 'addProductView'])->name('admin.add.product.view');
     Route::post('/addProduct', [ProductController::class, 'addProduct'])->name('admin.add.product');
@@ -29,6 +42,7 @@ Route::prefix('admin')->group(function () {
 
     Route::prefix('blog')->group(function () {
 
+        Route::post('/addBlog', [BlogController::class, 'addBlog'])->name('admin.add.blog');
         Route::get('/addBlogTools/view', [BlogController::class, 'addBlogToolsView'])->name('admin.add.blog.tools.view');
         Route::get('/addBlog/view', [BlogController::class, 'addBlogView'])->name('admin.add.blog.view');
         Route::get('/allBlogs/view', [BlogController::class, 'allBlogs'])->name('admin.all.blogs');
@@ -38,16 +52,23 @@ Route::prefix('admin')->group(function () {
 
         Route::get('/editBlog/view/{slug}', [BlogController::class, 'editBlogView'])->name('admin.edit.blog.view');
         Route::post('/editBlog/{slug}', [BlogController::class, 'editBlog'])->name('admin.edit.blog');
+        Route::post('/editBlogImage/{img}/{blog}', [BlogController::class, 'editBlogImage'])->name('admin.edit.blog.image');
+        Route::post('/deleteBlogImage/{img}/{blog}', [BlogController::class, 'deleteBlogImage'])->name('admin.delete.blog.image');
 
         Route::get('/singleComment/view/{id}', [BlogController::class, 'singleCommentView'])->name('admin.single.comment.view');
         Route::post('/commentApprove/{id}', [BlogController::class, 'commentApprove'])->name('admin.approve.comment');
         Route::post('/commentDelete/{id}', [BlogController::class, 'commentDelete'])->name('admin.delete.comment');
 
-        Route::post('/addBlog', [BlogController::class, 'addBlog'])->name('admin.add.blog');
 
         Route::post('/addComment', [BlogController::class, 'addComment'])->name('admin.add.comment');
+
         Route::post('/addBlogTag', [BlogController::class, 'addBlogTag'])->name('admin.add.blog.tag');
+        Route::post('/editBlogTag/{tag}', [BlogController::class, 'editBlogTag'])->name('admin.edit.blog.tag');
+
         Route::post('/addBlogCategory', [BlogController::class, 'addBlogCategory'])->name('admin.add.blog.category');
+        Route::post('/editBlogCategory/{cat}', [BlogController::class, 'editBlogCategory'])->name('admin.edit.blog.category');
+
+        Route::post('/searchBlog/view', [BlogController::class, 'searchBlog'])->name('admin.search.blog');
 
     });
 

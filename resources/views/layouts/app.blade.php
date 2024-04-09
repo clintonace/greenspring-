@@ -21,8 +21,56 @@
     <link rel="stylesheet" href="/assets/admin/assets/css/fonts.css">
     <link rel="stylesheet" href="/assets/admin/assets/css/main.css" class="color-switcher-link">
     <link rel="stylesheet" href="/assets/admin/assets/css/dashboard.css" class="color-switcher-link">
-    <script src="/assets/admin/assets//assets/admin/assets/js/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="/assets/admin/assets/js/vendor/modernizr-2.6.2.min.js"></script>
 
+
+    <style>
+        /* The Modal (background) */
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 50%;
+            /* Could be more or less, depending on screen size */
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="admin">
@@ -189,7 +237,7 @@
 
                         </div>
 
-                       <x-sidebar-component/>
+                        <x-sidebar-component />
 
                     </div>
                 </div>
@@ -676,6 +724,81 @@
 
     <!-- dashboard init -->
     <script src="/assets/admin/assets/js/admin.js"></script>
+
+    {{-- <script>
+                // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("openModalBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function() {
+        modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+        }
+
+
+    </script> --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get all modal elements
+            var modals = document.querySelectorAll('.modal');
+
+            // Get all open modal buttons
+            var openModalBtns = document.querySelectorAll('.openModalBtn');
+
+            // Loop through each open modal button
+            openModalBtns.forEach(function (btn) {
+                // Add click event listener to open modal button
+                btn.addEventListener('click', function () {
+                    // Get the modal ID from the button's data-modal-id attribute
+                    var modalId = btn.getAttribute('data-modal-id');
+                    // Display the corresponding modal when button is clicked
+                    var modal = document.getElementById(modalId);
+                    modal.style.display = 'block';
+                });
+            });
+
+            // Get all close buttons
+            var closeBtns = document.querySelectorAll('.close');
+
+            // Loop through each close button
+            closeBtns.forEach(function (btn) {
+                // Add click event listener to close button
+                btn.addEventListener('click', function () {
+                    // Close the modal when close button is clicked
+                    var modal = btn.closest('.modal');
+                    modal.style.display = 'none';
+                });
+            });
+
+            // Close modal when clicking outside of it
+            window.onclick = function (event) {
+                modals.forEach(function (modal) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            };
+        });
+    </script>
+
 
 </body>
 

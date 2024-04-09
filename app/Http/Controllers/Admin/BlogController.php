@@ -9,10 +9,83 @@ use App\Models\Comment;
 use App\Models\Product;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BlogController extends Controller
 {
+
+    public function editBlogImage(Request $request, $img, $b)
+    {
+
+
+        $blog = Blog::find($b);
+
+        // Get the path of the old image
+        $oldImagePath = public_path('/assets/BlogImages') . DIRECTORY_SEPARATOR . $img;
+
+
+        $ext =$request->file('image')->getClientOriginalExtension();
+        $rand = rand(10, 99).'_ED_IMG_'.rand(10, 99);   // The ED shows that this image has being edited.
+        $newImage= \Str::slug($blog->title).'_'.$rand.'.'.$ext;
+        $request->image->move(public_path('/assets/BlogImages'), $newImage);
+
+        File::delete($oldImagePath);
+
+        $images=explode('|',$blog->image);
+        $index=array_search($img,$images,true);
+
+        $images[$index]=$newImage;
+
+        $blog->image= implode('|',$images);
+        $blog->save();
+
+        Alert::success('Success','Image Edited Successfully');
+        return back();
+
+    }
+
+    public function searchBlog(Request $request)
+    {
+
+        $blogs = Blog::where('blog', 'like' ,'%'.$request->search.'%')->orWhere('title', 'like' ,'%'.$request->search.'%')->get();
+        $cats = Blogcategory::all();
+        $tags = Tag::all();
+
+        return view('admin.manageBlog.search', compact('blogs','cats','tags'));
+
+    }
+
+    public function editBlogTag(Request $request, $t)
+    {
+
+        $request->validate([
+            'name'=>'string',
+        ]);
+
+        $tag= Tag::find($t);
+        $tag->name = $request->name;
+        $tag->save();
+        Alert::success('Success', 'Tag Edited');
+        return back();
+
+    }
+
+    public function editBlogCategory(Request $request, $c)
+    {
+
+        $request->validate([
+            'name'=>'string',
+        ]);
+
+        $cat= Blogcategory::find($c);
+        $cat->name = $request->name;
+        $cat->save();
+        Alert::success('Success', 'Category Edited');
+        return back();
+
+    }
+
     public function addBlogView()
     {
 
@@ -29,8 +102,6 @@ class BlogController extends Controller
         $cats = Blogcategory::all();
         $blogs = Blog::latest()->with('product','category', 'comments')->paginate(3);
         $tags = Tag::all();
-
-        // dd($blogs);
 
         return view('admin.manageBlog.allBlogs', compact('cats','blogs', 'tags'));
 
@@ -54,11 +125,15 @@ class BlogController extends Controller
 
         if ($request->has('image')) {
 
-            $ext = $request->image->getClientOriginalExtension();
-            $rand = \Str::random(2);
-            $imageName = \Str::slug($request->title).$rand.'.'.$ext;
-            $request->image->move(public_path('/assets/BlogImages'), $imageName);
-            $image[] = $imageName;
+            foreach ($request->image as $img) {
+                $ext = $img->getClientOriginalExtension();
+                $rand = \Str::random(2);
+                $imageName = \Str::slug($request->title).$rand.'.'.$ext;
+                $img->move(public_path('/assets/BlogImages'), $imageName);
+                $image[] = $imageName;
+
+            }
+
         }
 
 

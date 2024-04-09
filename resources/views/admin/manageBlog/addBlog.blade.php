@@ -12,15 +12,6 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
             </div>
             <!-- .row -->
         </div>
@@ -32,35 +23,9 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <h3 class="dashboard-page-title">Dashboard
-                        <small>main page</small>
-                    </h3>
-                </div>
-                <div class="col-md-8 text-md-right">
-                    <h3 class="sparklines-title">
-                        <sup>Today Earnings:</sup>
-
-                        $3,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,-386,-468,-200,55,375,520,270,790,-670,-350,135,170,324,386,468,10,55,375,520,270,790"
-                            data-type="bar" data-line-color="#eeb269" data-neg-color="#dc5753" data-height="30"
-                            data-bar-width="2">
-                        </span>
+                    <h3 class="dashboard-page-title">Create Blog
 
                     </h3>
-
-                    <h3 class="sparklines-title">
-                        <sup>Yesterday Earn: </sup>
-                        $4,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,386,-468,-10,55,375,520,-270,790,670,-350,135,170,324,386,468,10,-55,-375,-520,270,790"
-                            data-type="bar" data-line-color="#4db19e" data-neg-color="#007ebd" data-height="30"
-                            data-bar-width="2">
-                        </span>
-                    </h3>
-
                 </div>
 
             </div>
@@ -111,9 +76,10 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Related Product (The product will be displayed as
+                                <label for="exampleInputPassword1">Related Product <em class="text-danger">(The product will be displayed as
                                     reference to the blog when it is displayed if your blog content does not relate to
-                                    any product you can leave this blank):</label>
+                                    any product you can leave this blank):</em>
+                                </label>
                                 <select class="form-control" name="product_id">
                                     <option selected disabled>Select Product</option>
                                     @foreach ($products as $p)
@@ -137,7 +103,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Images(Choose 1, 2 or 3 images ):</label>
                                 {{-- <input name="image" accept="image*/" class="form-control" type="file" /> --}}
-                                <input name="image" accept="image*/" class="form-control" type="file" />
+                                <input name="image[]" accept="image*/" multiple class="form-control" type="file" />
                                 <x-input-error :messages="$errors->get('image')" class="mt-2" />
 
                             </div>

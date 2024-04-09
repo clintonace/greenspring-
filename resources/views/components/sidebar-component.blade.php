@@ -20,12 +20,12 @@
             </a>
             <ul>
                 <li>
-                    <a href="admin_profile.html">
+                    <a href="{{route('users')}}">
                         Users
                     </a>
                 </li>
                 <li>
-                    <a href="admin_profile_edit.html">
+                    <a href="{{route('my.profile')}}">
                         My profile
                     </a>
                 </li>

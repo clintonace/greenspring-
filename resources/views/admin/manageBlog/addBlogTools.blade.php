@@ -12,15 +12,6 @@
 
                     </ol>
                 </div>
-                <!-- .col-* -->
-                <div class="col-md-6 text-md-right">
-                    <span class="dashboard-daterangepicker">
-                        <i class="fa fa-calendar"></i>
-                        <span></span>
-                        <i class="caret"></i>
-                    </span>
-                </div>
-                <!-- .col-* -->
             </div>
             <!-- .row -->
         </div>
@@ -32,37 +23,9 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <h3 class="dashboard-page-title">Dashboard
-                        <small>main page</small>
+                    <h3 class="dashboard-page-title">Add Tools
                     </h3>
                 </div>
-                <div class="col-md-8 text-md-right">
-                    <h3 class="sparklines-title">
-                        <sup>Today Earnings:</sup>
-
-                        $3,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,-386,-468,-200,55,375,520,270,790,-670,-350,135,170,324,386,468,10,55,375,520,270,790"
-                            data-type="bar" data-line-color="#eeb269" data-neg-color="#dc5753" data-height="30"
-                            data-bar-width="2">
-                        </span>
-
-                    </h3>
-
-                    <h3 class="sparklines-title">
-                        <sup>Yesterday Earn: </sup>
-                        $4,000
-
-                        <span class="sparklines"
-                            data-values="670,350,135,-170,-324,386,-468,-10,55,375,520,-270,790,670,-350,135,170,324,386,468,10,-55,-375,-520,270,790"
-                            data-type="bar" data-line-color="#4db19e" data-neg-color="#007ebd" data-height="30"
-                            data-bar-width="2">
-                        </span>
-                    </h3>
-
-                </div>
-
             </div>
             <!-- .row -->
 
@@ -135,11 +98,22 @@
                                     <td>{{$cat->name}}</td>
                                     <td>{{$cat->created_at->diffForHumans()}}</td>
                                     <td>
-                                        <i class="fa fa-eye"></i>
-                                        <i class="fa fa-pencil"></i>
-                                        <i class="fa fa-trash"></i>
+
+                                        <i class="openModalBtn fa fa-pencil" data-modal-id="modal{{$loop->index}}"></i>
+
                                     </td>
                                 </tr>
+                                <div id="modal{{$loop->index}}" class="modal">
+                                    <div class="modal-content">
+                                        {{-- <span class="close">&times;</span> --}}
+                                        <p>Click any where outside to close.</p>
+                                        <form action="{{route('admin.edit.blog.category', $cat->id)}}" method="post">
+                                            @csrf
+                                            <input type="text" name="name" value="{{$cat->name}}" class="form-control">
+                                            <button type="submit" class="btn btn-success">Edit</button>
+                                        </form>
+                                    </div>
+                                </div>
                                 @endforeach
                             </tbody>
                         </table>
@@ -147,6 +121,9 @@
                     <!-- .with_border -->
                 </div>
                 <!-- .col-* -->
+                {{-- <button id="openModalBtn">Open Modal</button> --}}
+
+
 
                 <div class="col-sm-6">
 
@@ -165,18 +142,28 @@
                             <tbody>
 
                                 @foreach ($tags as $tag)
-
                                 <tr>
-                                    <td>{{$loop->index +1}}</td>
+                                    <td>{{$loop->index + 1}}</td>
                                     <td>{{$tag->name}}</td>
                                     <td>{{$tag->created_at->diffForHumans()}}</td>
                                     <td>
-                                        <i class="fa fa-eye"></i>
-                                        <i class="fa fa-pencil"></i>
-                                        <i class="fa fa-trash"></i>
+                                        <i class="openModalBtn fa fa-pencil" data-modal-id="modal{{$loop->index}}"></i>
                                     </td>
                                 </tr>
+
+                                <div id="modal{{$loop->index}}" class="modal">
+                                    <div class="modal-content">
+                                        {{-- <span class="close">&times;</span> --}}
+                                        <p>Click anywhere outside to close.</p>
+                                        <form action="{{route('admin.edit.blog.tag', $tag->id)}}" method="post">
+                                            @csrf
+                                            <input type="text" name="name" value="{{$tag->name}}" class="form-control">
+                                            <button type="submit" class="btn btn-success">Edit</button>
+                                        </form>
+                                    </div>
+                                </div>
                                 @endforeach
+
                             </tbody>
                         </table>
                     </div>
